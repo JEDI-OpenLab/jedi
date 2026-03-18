@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ChatGPT : c&#x27;est quoi ? | Veille | CLIIIP-OpenLab</title>
+    <meta name="description" content="ChatGPT est un chatbot qui s&#x27;appuie sur un LLM (Large Language Model // Grand modèle de langage.) basé sur l&#x27;architecture GPT (Generative Pre-trained Trans…">
+    <meta property="og:title" content="ChatGPT : c&#x27;est quoi ? | Veille | CLIIIP-OpenLab">
+    <meta property="og:description" content="ChatGPT est un chatbot qui s&#x27;appuie sur un LLM (Large Language Model // Grand modèle de langage.) basé sur l&#x27;architecture GPT (Generative Pre-trained Trans…">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../PIX/favicon-32.png">
+    <link rel="apple-touch-icon" href="../PIX/favicon-180.png">
+  </head>
+  <body data-page="veille">
+    <div class="fixed-top site-topbar" role="navigation" aria-label="Navigation principale">
+      <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between gap-3">
+        <a href="../index.html" class="brand-lockup d-flex align-items-center text-decoration-none text-white">
+          <img src="../PIX/cliiip-openlab.jpg" alt="CLIIIP-OpenLab" style="height:46px; width:46px;">
+          <span class="ms-2 d-none d-sm-inline">
+            <span class="brand-title-top d-block fw-semibold">CLI Ingénierie &amp; Innovation Pédagogique</span>
+            <span class="brand-subtitle-top d-block">OpenLab</span>
+          </span>
+        </a>
+        <nav class="d-flex align-items-center">
+          <button class="btn btn-light btn-sm d-inline-flex d-sm-none align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuMobile" aria-controls="menuMobile" aria-label="Ouvrir le menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="d-none d-sm-flex gap-2 nav-shell p-1 rounded-4 flex-wrap overflow-auto">
+            <a href="../index.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="home"><i class="fa-solid fa-house"></i><span class="ms-1">Accueil</span></a>
+            <a href="../pedagogie.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="pedagogie"><i class="fa-solid fa-chalkboard-user"></i><span class="ms-1">Pédagogie</span></a>
+            <a href="../veille.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="veille"><i class="fa-solid fa-rss"></i><span class="ms-1">Veille</span></a>
+            <a href="../about.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="about"><i class="fa-solid fa-circle-info"></i><span class="ms-1">À propos</span></a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="site-spacer"></div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title h5 offcanvas-brand" id="menuMobileLabel"><i class="fa-solid fa-flask me-2"></i>CLIIIP-OpenLab</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="d-grid gap-2">
+          <a href="../index.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="home"><i class="fa-solid fa-house me-2"></i>Accueil</a>
+          <a href="../pedagogie.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="pedagogie"><i class="fa-solid fa-chalkboard-user me-2"></i>Pédagogie</a>
+          <a href="../veille.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="veille"><i class="fa-solid fa-rss me-2"></i>Veille</a>
+          <a href="../about.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="about"><i class="fa-solid fa-circle-info me-2"></i>À propos</a>
+        </div>
+      </div>
+    </div>
+    <header class="hero-shell">
+      <div class="container py-5">
+        <div class="row align-items-center g-4 py-lg-5">
+          <div class="col-lg-8">
+            <span class="eyebrow"><i class="fa-solid fa-book-open-reader"></i> Carnet de labo pédagogique</span>
+            <h1 class="hero-title mt-3">ChatGPT : c&#x27;est quoi ?</h1>
+            <p class="hero-lead mt-4 mb-0">Chapitre 5 – Intelligence Artificielle</p>
+          </div>
+          <div class="col-lg-4">
+            <article class="hero-panel">
+              <div class="card-body">
+                <p class="hero-panel-kicker">Navigation</p>
+                <p class="mb-3">Cet article est issu du carnet de veille pédagogique intégré à la rubrique veille du OpenLab.</p>
+                <a class="btn btn-outline-primary w-100" href="../veille.html"><i class="fa-solid fa-arrow-left me-2"></i>Retour à la veille</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="section-shell">
+        <div class="container article-layout">
+          <div class="row g-4">
+            <div class="col-lg-8">
+              <article class="page-panel article-panel h-100">
+                <div class="card-body article-body">
+<section class="article-section">
+<h2 class="h4 article-section-title">Contenu</h2>
+<p>ChatGPT est un chatbot qui s&#x27;appuie sur un LLM (Large Language Model // Grand modèle de langage.) basé sur l&#x27;architecture GPT (Generative Pre-trained Transformer), développé par OpenAI. OpenAI est une entreprise fondée en partie par Elon Musk et qui a bénéficié d&#x27;investissements massifs de la part de Microsoft depuis 2019.</p>
+<p>ChatGPT n&#x27;est pas le seul LLM, Retrouvez le panorama des différents LLMs disponibles, réalisé par le pôle d’analyse de AI Builders AI Builders Research.</p>
+</section>
+<section class="article-section">
+<h2 class="h4 article-section-title">Ça fonctionne comment ?</h2>
+<p>ChatGPT permet d&#x27;accomplir les tâches suivantes :</p>
+<ul class="clean-list article-list">
+<li>Analyser un texte d&#x27;entrée et le découper en une série d&#x27;éléments de texte, appelés « tokens ».</li>
+<li>Prédire les tokens suivants de manière à ce que ces prédictions reflètent les données sur lesquelles le modèle a été « entraîné ».</li>
+</ul>
+<p>Fondamentalement, sa fonction principale est de répondre à la question suivante :</p>
+<p>En supposant que le « prompt » (le texte d&#x27;entrée) constitue le début d&#x27;un texte issu des données d&#x27;entraînement, quelle serait la suite la plus probable ?</p>
+<p>Il réalise cela en calculant les probabilités pour le token suivant, puis en utilisant le nouveau texte ainsi formé pour calculer les probabilités du token suivant, et ainsi de suite. Le texte généré sera donc similaire aux textes présents dans les données d&#x27;entraînement.</p>
+<p>Son rôle principal est de générer une suite crédible pour un texte donné. Le terme « crédible » signifie que cette suite correspond aux corpus de textes utilisés pour l&#x27;entraînement du modèle, sans nécessairement signifier qu&#x27;elle est correcte.Comme la grande majorité des textes d&#x27;entraînement sont en langage naturel, la suite du texte généré par le modèle est également en langage naturel. Bien que cela puisse sembler qu&#x27;il raisonne et produit du sens, en réalité, il se contente de calculer des probabilités pour le token suivant et d&#x27;afficher le plus probable.</p>
+</section>
+<section class="article-section">
+<h2 class="h4 article-section-title">Prédiction de texte et chatbot</h2>
+<p>Lorsque nous utilisons un prompt qui ressemble à une partie de conversation, ChatGPT continue probablement en générant une suite qui ressemble à une continuation de la conversation, en s&#x27;appuyant sur ce qu&#x27;il a appris lors de son entraînement.</p>
+<p>Le fine-tuning consiste à ajuster le modèle et le programme pour qu&#x27;ils puissent générer du texte en réponse à des instructions spécifiques. L&#x27;apprentissage par renforcement par feedback humain a été utilisé pour &quot;dresser&quot; le modèle, en utilisant un système de récompenses et de punitions, afin qu&#x27;il puisse générer du texte de manière similaire à un chatbot.</p>
+<p>Les prompts « cadre » sont constitués d&#x27;un ensemble de « pré-prompts » cachés qui conditionnent la manière dont il formulera ses premières réponses. Ces prompts sont formulés sous forme de dialogue en adresse directe, ce qui fait que le modèle reproduit cette forme telle qu&#x27;il l&#x27;a observée dans ses données d&#x27;entraînement et dans son apprentissage par feedback.</p>
+<p>ChatGPT se base sur le texte précédent pour générer ses réponses (ses prédictions), ce qui signifie que : Il maintient la continuité dans la conversation, en prenant en compte ce qui a été dit précédemment, dans la limite de 3000 tokens pour GPT-3 et 30000 tokens pour GPT-4. Chaque échange crée un contexte qui influence la forme et le contenu de ses réponses futures. GPT-3 et GPT-4 ont été formés avec une énorme quantité de données d&#x27;entraînement, représentant un vaste échantillon de ce que l&#x27;humanité a produit jusqu&#x27;en 2021.</p>
+<p>ChatGPT se base sur le texte précédent pour générer ses réponses (ses prédictions), ce qui signifie que :</p>
+<ul class="clean-list article-list">
+<li>Il maintient la continuité dans la conversation, en prenant en compte ce qui a été dit précédemment, dans la limite de 3000 tokens pour GPT-3 et 30000 tokens pour GPT-4.</li>
+<li>Chaque échange crée un contexte qui influence la forme et le contenu de ses réponses futures.</li>
+</ul>
+</section>
+<section class="article-section">
+<h2 class="h4 article-section-title">Pourquoi ça &quot;marche&quot; si bien ?</h2>
+<p>GPT se construit sur une masse de données gigantesque, un échantillon énorme de ce que l&#x27;humanité a produit jusque 2021. Les données suivantes sont des estimations :</p>
+</section>
+<section class="article-section">
+<h2 class="h4 article-section-title">Les limites du système</h2>
+<p>ChatGPT ne parcourt pas des bases de données pour répondre, il prédit la suite de caractères la plus crédible du point de vue de la langue et non du contenu. Il est de plus en plus difficile de prendre en défaut les dernières versions de GPT, mais la fiabilité n&#x27;est jamais garantie. Exemple :</p>
+<p>Attention ces informations sont certainement déjà obsolètes à l&#x27;heure où vous les lisez. Cette note de veille a été rédigée en août 2023.</p>
+</section>
+                </div>
+              </article>
+            </div>
+            <div class="col-lg-4">
+              <aside class="page-panel h-100">
+                <div class="card-body article-sidebar">
+                  <p class="card-kicker">Chapitre</p><p class="mb-4">Chapitre 5 – Intelligence Artificielle</p><p class="card-kicker">Source</p><p class="mb-0">Contenu repris intégralement du document <em>Carnet de labo pédago</em>.</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer-shell border-top py-4">
+      <div class="container d-flex justify-content-center align-items-center text-center">
+        <span class="footer-text small"><i class="fa-solid fa-flask me-2 text-warning"></i><strong>CLI Ingénierie &amp; Innovation Pédagogique — OpenLab</strong></span>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/site.js"></script>
+  </body>
+</html>

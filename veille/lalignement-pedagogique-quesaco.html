@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>L’alignement pédagogique : quésaco ? | Veille | CLIIIP-OpenLab</title>
+    <meta name="description" content="Cet article présente le concept d&#x27;alignement pédagogique, qui consiste à assurer la cohérence entre les objectifs d&#x27;apprentissage, les contenus de cours, l…">
+    <meta property="og:title" content="L’alignement pédagogique : quésaco ? | Veille | CLIIIP-OpenLab">
+    <meta property="og:description" content="Cet article présente le concept d&#x27;alignement pédagogique, qui consiste à assurer la cohérence entre les objectifs d&#x27;apprentissage, les contenus de cours, l…">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../PIX/favicon-32.png">
+    <link rel="apple-touch-icon" href="../PIX/favicon-180.png">
+  </head>
+  <body data-page="veille">
+    <div class="fixed-top site-topbar" role="navigation" aria-label="Navigation principale">
+      <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between gap-3">
+        <a href="../index.html" class="brand-lockup d-flex align-items-center text-decoration-none text-white">
+          <img src="../PIX/cliiip-openlab.jpg" alt="CLIIIP-OpenLab" style="height:46px; width:46px;">
+          <span class="ms-2 d-none d-sm-inline">
+            <span class="brand-title-top d-block fw-semibold">CLI Ingénierie &amp; Innovation Pédagogique</span>
+            <span class="brand-subtitle-top d-block">OpenLab</span>
+          </span>
+        </a>
+        <nav class="d-flex align-items-center">
+          <button class="btn btn-light btn-sm d-inline-flex d-sm-none align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuMobile" aria-controls="menuMobile" aria-label="Ouvrir le menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="d-none d-sm-flex gap-2 nav-shell p-1 rounded-4 flex-wrap overflow-auto">
+            <a href="../index.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="home"><i class="fa-solid fa-house"></i><span class="ms-1">Accueil</span></a>
+            <a href="../pedagogie.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="pedagogie"><i class="fa-solid fa-chalkboard-user"></i><span class="ms-1">Pédagogie</span></a>
+            <a href="../veille.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="veille"><i class="fa-solid fa-rss"></i><span class="ms-1">Veille</span></a>
+            <a href="../about.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="about"><i class="fa-solid fa-circle-info"></i><span class="ms-1">À propos</span></a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="site-spacer"></div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title h5 offcanvas-brand" id="menuMobileLabel"><i class="fa-solid fa-flask me-2"></i>CLIIIP-OpenLab</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="d-grid gap-2">
+          <a href="../index.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="home"><i class="fa-solid fa-house me-2"></i>Accueil</a>
+          <a href="../pedagogie.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="pedagogie"><i class="fa-solid fa-chalkboard-user me-2"></i>Pédagogie</a>
+          <a href="../veille.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="veille"><i class="fa-solid fa-rss me-2"></i>Veille</a>
+          <a href="../about.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="about"><i class="fa-solid fa-circle-info me-2"></i>À propos</a>
+        </div>
+      </div>
+    </div>
+    <header class="hero-shell">
+      <div class="container py-5">
+        <div class="row align-items-center g-4 py-lg-5">
+          <div class="col-lg-8">
+            <span class="eyebrow"><i class="fa-solid fa-book-open-reader"></i> Carnet de labo pédagogique</span>
+            <h1 class="hero-title mt-3">L’alignement pédagogique : quésaco ?</h1>
+            <p class="hero-lead mt-4 mb-0">Chapitre 2 - Cohérence</p>
+          </div>
+          <div class="col-lg-4">
+            <article class="hero-panel">
+              <div class="card-body">
+                <p class="hero-panel-kicker">Navigation</p>
+                <p class="mb-3">Cet article est issu du carnet de veille pédagogique intégré à la rubrique veille du OpenLab.</p>
+                <a class="btn btn-outline-primary w-100" href="../veille.html"><i class="fa-solid fa-arrow-left me-2"></i>Retour à la veille</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="section-shell">
+        <div class="container article-layout">
+          <div class="row g-4">
+            <div class="col-lg-8">
+              <article class="page-panel article-panel h-100">
+                <div class="card-body article-body">
+<section class="article-section">
+<h2 class="h4 article-section-title">Résumé</h2>
+<p>Cet article présente le concept d&#x27;alignement pédagogique, qui consiste à assurer la cohérence entre les objectifs d&#x27;apprentissage, les contenus de cours, les méthodes pédagogiques et les stratégies d&#x27;évaluation. Cette méthode permet de promouvoir un apprentissage qualifié et en profondeur chez les étudiants. Le concept d&#x27;alignement pédagogique se base sur les théories constructivistes de l&#x27;apprentissage et les pratiques de conception des enseignements.</p>
+</section>
+<section class="article-section">
+<h2 class="h4 article-section-title">Présentation</h2>
+<p>L&#x27;expression &quot;alignement constructif&quot; ou &quot;constructiviste&quot; a été introduite par John Biggs en 1996. Ce concept repose sur les travaux antérieurs de Ralph Tyler (1949) et de Thomas Shuell (1986) afin de proposer un modèle d&#x27;enseignement universitaire. Cette méthode vise à promouvoir un apprentissage qualifié de profond en concevant et évaluant l&#x27;apprentissage des étudiants en fonction des résultats attendus.</p>
+<p>Elle résulte de la rencontre entre les théories constructivistes de l&#x27;apprentissage et les pratiques de conception des enseignements. Le terme &quot;constructiviste&quot; renvoie à l&#x27;idée que l&#x27;apprenant est capable de construire ses propres connaissances en participant à des activités d&#x27;apprentissage.</p>
+<p>Il y a alignement pédagogique lorsque les objectifs d’apprentissage sont cohérents avec les méthodes pédagogiques et les stratégies d’évaluation mises en œuvre. C’est cette cohérence qui va permettre un apprentissage durable et en profondeur de l’étudiant. L&#x27;alignement pédagogique est important car il permet aux enseignants de créer des cours qui sont cohérents, efficaces et adaptés aux besoins des apprenants. Cela contribue également à améliorer les résultats d&#x27;apprentissage des étudiants.</p>
+<ul class="clean-list article-list">
+<li>Les objectifs d&#x27;apprentissage : définir les apprentissages visés dans le cours, c&#x27;est-à-dire ce que les étudiants doivent être capables de faire selon le niveau d&#x27;apprentissage visé (à l&#x27;issue de cet enseignement, les étudiants seront capables de...)</li>
+<li>Les contenus de cours : organiser les contenus du cours en fonction des objectifs d&#x27;apprentissage : quels thèmes doivent être abordés, qu&#x27;est-ce qui doit être vu prioritairement, qu&#x27;est-ce qui peut être survolé si manque de temps, qu&#x27;est-ce qui doit être abordé en profondeur ?</li>
+<li>Les méthodes pédagogiques : choisir des activités pédagogiques pour permettre aux étudiants d&#x27;atteindre les apprentissages visés. Quels sont les moyens mis en place pour atteindre ces objectifs ?</li>
+<li>Les stratégies d&#x27;évaluation : comment se rendre compte qu’on a atteint les objectifs ? Comment évaluer que ces objectifs sont atteints ? En quoi le système d’évaluation aide les étudiants à atteindre ces objectifs ?</li>
+</ul>
+</section>
+<section class="article-section">
+<h2 class="h4 article-section-title">Références</h2>
+<ul class="clean-list article-list">
+<li>Biggs, J. (1996). Enhancing teaching through constructive alignment. Higher education, 32,3, pp 347- 364. <a href="http://www.jstor.org/stable/3448076" target="_blank" rel="noopener">http://www.jstor.org/stable/3448076</a></li>
+<li>Gérard, L. (2015). L&#x27;alignement pédagogique: Le concept clé en pédagogie universitaire. CooperationUniversitaire.com. Récupéré de <a href="https://cooperationuniversitaire.com/2015/08/25/lalignement-pedagogique-le-concept-cle-en-pedagogie-universitaire/" target="_blank" rel="noopener">https://cooperationuniversitaire.com/2015/08/25/lalignement-pedagogique-le-concept-cle-en-pedagogie-universitaire/</a></li>
+<li>Poumay, Marianne (2014). Six leviers pour améliorer l’apprentissage des étudiants du supérieur. Revue internationale de pédagogie de l’enseignement supérieur. 30-1, 2014.Consulté le 22 février 2016. URL : <a href="http://ripes.revues.org/778" target="_blank" rel="noopener">http://ripes.revues.org/778</a></li>
+<li>Shuell, T. J. (1986). Cognitive conceptions of learning. Review of educational research, 56(4), 411-436.</li>
+<li>Tyler, R. W. (1949). Basic principles of curriculum and instruction. University of Chicago Press.</li>
+<li>Université de Sherbrooke. (s.d). Stratégies pédagogiques. Récupéré de <a href="https://www.usherbrooke.ca/ssf/enseignement/strategies-pedagogiques" target="_blank" rel="noopener">https://www.usherbrooke.ca/ssf/enseignement/strategies-pedagogiques</a></li>
+</ul>
+</section>
+                </div>
+              </article>
+            </div>
+            <div class="col-lg-4">
+              <aside class="page-panel h-100">
+                <div class="card-body article-sidebar">
+                  <p class="card-kicker">Mots-clés</p><div class="d-flex flex-wrap gap-2 mb-4"><span class="badge-soft">Alignement pédagogique</span><span class="badge-soft">Apprentissage</span><span class="badge-soft">Cohérence</span><span class="badge-soft">Constructivisme</span><span class="badge-soft">Enseignement</span></div><p class="card-kicker">Chapitre</p><p class="mb-4">Chapitre 2 - Cohérence</p><p class="card-kicker">Source</p><p class="mb-0">Contenu repris intégralement du document <em>Carnet de labo pédago</em>.</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer-shell border-top py-4">
+      <div class="container d-flex justify-content-center align-items-center text-center">
+        <span class="footer-text small"><i class="fa-solid fa-flask me-2 text-warning"></i><strong>CLI Ingénierie &amp; Innovation Pédagogique — OpenLab</strong></span>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/site.js"></script>
+  </body>
+</html>

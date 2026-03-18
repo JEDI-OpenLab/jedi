@@ -3,60 +3,47 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CLI Ingénierie &amp; Innovation Pédagogique – OpenLab</title>
-    <meta name="description" content="CLIIIP-OpenLab — le portail de l’ingénierie et de l’innovation pédagogique de Centrale Lille. Ressources et outils pour l’hybridation, la comodalité, la gamification, l’approche par compétences, l’IA raisonnée, le design pédagogique et l’innovation frugale.">
-    <!-- Bootstrap CSS -->
+    <title>CLIIIP-OpenLab | Ingénierie et innovation pédagogique</title>
+    <meta name="description" content="CLIIIP-OpenLab : ingénierie pédagogique, design de dispositifs, innovation frugale, veille et réalisations au service de l'enseignement supérieur.">
+    <meta property="og:title" content="CLIIIP-OpenLab | Ingénierie et innovation pédagogique">
+    <meta property="og:description" content="Explorer, concevoir, transformer et documenter des dispositifs pédagogiques utiles, sobres et transmissibles.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-    <style>
-      :root{
-        --brand-primary:#436692;  /* bleu profond */
-        --brand-secondary:#84A3B1;/* bleu-vert doux */
-        --brand-coral:#D07857;    /* corail */
-        --brand-amber:#EDB349;    /* ambre */
-        --brand-neutral:#B6AFAA;  /* gris chaud */
-        --brand-white:#FFFFFF;    /* blanc */
-      }
-      .bg-brand-gradient{background:linear-gradient(135deg,var(--brand-primary) 0%, var(--brand-secondary) 45%, var(--brand-amber) 85%, var(--brand-coral) 100%);}  
-    </style>
-    <!-- Favicon (logo de l'école) -->
-    <link rel="icon" href="PIX/Logo-CentraleLille-valeurs-couleur-RVB.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="PIX/favicon-32.png">
+    <link rel="apple-touch-icon" href="PIX/favicon-180.png">
   </head>
-  <body class="bg-body">
-    <!-- Ancre haut de page -->
+  <body data-page="home">
     <div id="top"></div>
 
-    <!-- Bandeau principal / navigation principale -->
-    <div class="fixed-top bg-brand-gradient" role="navigation" aria-label="Bandeau principal" style="box-shadow: 0 2px 8px rgba(0,0,0,.2);">
-      <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between">
-        <div class="d-flex align-items-center">
-          <a href="#top" class="d-inline-block" title="Retour en haut">
-            <img src="PIX/Logo-CentraleLille-valeurs-couleur-RVB.png" alt="Centrale Lille" style="height:40px; width:auto;">
-          </a>
-          <span class="ms-2 text-white fw-semibold d-none d-sm-inline" style="text-shadow:0 1px 2px rgba(0,0,0,.25)">CLI Ingénierie &amp; Innovation Pédagogique — OpenLab</span>
-        </div>
+    <div class="fixed-top site-topbar" role="navigation" aria-label="Navigation principale">
+      <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between gap-3">
+        <a href="index.html" class="brand-lockup d-flex align-items-center text-decoration-none text-white">
+          <img src="PIX/cliiip-openlab.jpg" alt="CLIIIP-OpenLab" style="height:46px; width:46px;">
+          <span class="ms-2 d-none d-sm-inline">
+            <span class="brand-title-top d-block fw-semibold">CLI Ingénierie &amp; Innovation Pédagogique</span>
+            <span class="brand-subtitle-top d-block">OpenLab</span>
+          </span>
+        </a>
         <nav class="d-flex align-items-center">
-          <!-- Bouton hamburger (mobile uniquement) -->
-          <button class="btn btn-light btn-sm d-inline-flex d-sm-none align-items-center"
-                  type="button"
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#menuMobile"
-                  aria-controls="menuMobile"
-                  aria-label="Ouvrir le menu">
+          <button class="btn btn-light btn-sm d-inline-flex d-sm-none align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuMobile" aria-controls="menuMobile" aria-label="Ouvrir le menu">
             <i class="fa-solid fa-bars"></i>
           </button>
-          <div class="d-none d-sm-flex gap-2 bg-white bg-opacity-25 p-1 rounded-4 flex-wrap overflow-auto">
-            <a href="index.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link">
+          <div class="d-none d-sm-flex gap-2 nav-shell p-1 rounded-4 flex-wrap overflow-auto">
+            <a href="index.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="home">
               <i class="fa-solid fa-house"></i><span class="ms-1">Accueil</span>
             </a>
-            <a href="pedagogie.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link">
+            <a href="pedagogie.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="pedagogie">
               <i class="fa-solid fa-chalkboard-user"></i><span class="ms-1">Pédagogie</span>
             </a>
-            <a href="veille.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link">
+            <a href="veille.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="veille">
               <i class="fa-solid fa-rss"></i><span class="ms-1">Veille</span>
             </a>
-            <a href="about.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link">
+            <a href="about.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="about">
               <i class="fa-solid fa-circle-info"></i><span class="ms-1">À propos</span>
             </a>
           </div>
@@ -64,165 +51,276 @@
       </div>
     </div>
 
-    <div style="height:64px;"></div>
+    <div class="site-spacer"></div>
 
-    <!-- Menu mobile (offcanvas navigation) -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="menuMobileLabel">
-          <i class="fa-solid fa-flask me-2"></i>CLI Ingénierie &amp; Innovation Pédagogique — OpenLab
-        </h5>
+        <h2 class="offcanvas-title h5 offcanvas-brand" id="menuMobileLabel">
+          <i class="fa-solid fa-flask me-2"></i>CLIIIP-OpenLab
+        </h2>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
       </div>
       <div class="offcanvas-body">
         <div class="d-grid gap-2">
-          <a href="index.html" class="btn btn-outline-primary d-flex align-items-center" data-bs-dismiss="offcanvas">
-            <i class="fa-solid fa-house me-2"></i> Accueil
+          <a href="index.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="home">
+            <i class="fa-solid fa-house me-2"></i>Accueil
           </a>
-          <a href="pedagogie.html" class="btn btn-outline-primary d-flex align-items-center" data-bs-dismiss="offcanvas">
-            <i class="fa-solid fa-chalkboard-user me-2"></i> Pédagogie
+          <a href="pedagogie.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="pedagogie">
+            <i class="fa-solid fa-chalkboard-user me-2"></i>Pédagogie
           </a>
-          <a href="veille.html" class="btn btn-outline-primary d-flex align-items-center" data-bs-dismiss="offcanvas">
-            <i class="fa-solid fa-rss me-2"></i> Veille
+          <a href="veille.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="veille">
+            <i class="fa-solid fa-rss me-2"></i>Veille
           </a>
-          <a href="about.html" class="btn btn-outline-primary d-flex align-items-center" data-bs-dismiss="offcanvas">
-            <i class="fa-solid fa-circle-info me-2"></i> À propos
+          <a href="about.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="about">
+            <i class="fa-solid fa-circle-info me-2"></i>À propos
           </a>
         </div>
       </div>
     </div>
 
-    <!-- En-tête / hero OpenLab -->
-    <header class="text-center" style="color:#fff; background:
-      linear-gradient(135deg, rgba(67,102,146,.90) 0%, rgba(132,163,177,.78) 45%, rgba(237,179,73,.70) 85%, rgba(208,120,87,.78) 100%),
-      url('PIX/CLIIIP-OpenLab.png') center/cover no-repeat;">
+    <header class="hero-shell">
       <div class="container py-5">
-        <div class="row py-lg-4">
-          <div class="col-lg-10 col-md-12 mx-auto">
-            <div class="mb-3">
-              <i class="fa-solid fa-flask" style="font-size: 3rem;"></i>
+        <div class="row align-items-center g-4 py-lg-5">
+          <div class="col-lg-7">
+            <span class="eyebrow"><i class="fa-solid fa-flask"></i> Ingénierie et innovation pédagogique</span>
+            <h1 class="hero-title mt-3">Concevoir des dispositifs pédagogiques utiles, sobres et transmissibles</h1>
+            <p class="hero-lead mt-4 mb-0">
+              Le <strong>CLIIIP-OpenLab</strong> accompagne la transformation pédagogique de l'enseignement supérieur :
+              hybridation, comodalité, gamification, approche par compétences, design de ressources ouvertes, usages raisonnés de l'IA et innovation frugale.
+            </p>
+            <p class="hero-support mt-3 mb-0">
+              Notre logique est simple : partir des besoins réels des équipes, alléger la complexité, documenter les choix de conception, et produire des ressources réutilisables qui tiennent dans le temps.
+            </p>
+            <div class="hero-actions d-grid d-sm-flex gap-3 mt-4">
+              <a class="btn btn-primary btn-lg" href="pedagogie.html">
+                <i class="fa-solid fa-compass-drafting me-2"></i>Découvrir l'approche
+              </a>
+              <a class="btn btn-outline-light btn-lg" href="#realisations">
+                <i class="fa-solid fa-arrow-down me-2"></i>Voir les réalisations
+              </a>
             </div>
-            <h1 class="display-5 fw-bold" style="text-shadow:0 1px 2px rgba(0,0,0,.25)">CLI Ingénierie &amp; Innovation Pédagogique — OpenLab</h1>
+            <div class="metric-ribbon mt-4">
+              <span class="metric-pill">Design pédagogique</span>
+              <span class="metric-pill">Ressources ouvertes</span>
+              <span class="metric-pill">Serious games</span>
+              <span class="metric-pill">Innovation frugale</span>
+              <span class="metric-pill">Veille utile</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <article class="hero-panel">
+              <div class="card-body">
+                <p class="hero-panel-kicker">Positionnement</p>
+                <h2 class="hero-panel-title">Une pédagogie anthropocentrée, pas technocentrée</h2>
+                <p class="mb-0">
+                  La technologie n'est pas la finalité. Elle devient intéressante lorsqu'elle améliore réellement
+                  l'expérience d'apprentissage, la lisibilité des parcours, l'autonomie des apprenant·es et les conditions de travail des enseignant·es.
+                </p>
+              </div>
+            </article>
+            <article class="hero-panel mt-3">
+              <div class="card-body">
+                <p class="hero-panel-kicker">Ce que propose le OpenLab</p>
+                <ul class="clean-list">
+                  <li>Des repères de conception et des méthodes actionnables.</li>
+                  <li>Des exemples concrets de réalisations menées dans le cadre du OpenLab.</li>
+                  <li>Une veille structurée pour alimenter les choix pédagogiques.</li>
+                </ul>
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </header>
 
-    <main class="container mb-5">
-
-
-
-
-      <!-- Section de bienvenue / présentation OpenLab -->
-      <section id="bienvenue" class="py-5" style="scroll-margin-top: 80px;">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h2 class="h3 mb-0"><i class="fa-solid fa-hand-sparkles me-2"></i>Bienvenue</h2>
-         
-        </div>
-
-        <div class="row g-3">
-          <div class="col-12 col-lg-10 mx-auto">
-            <div class="card border-0 shadow-sm" style="border-left:6px solid var(--brand-primary);">
-              <div class="card-body">
-                <h3 class="h6 card-title"><i class="fa-solid fa-circle-nodes me-2" style="color:var(--brand-primary);"></i>Explorer, concevoir, partager</h3>
-                <p class="mb-2">
-                  Le <strong>CLIIIP-OpenLab</strong> met à disposition des enseignant·e·s et des équipes pédagogiques des ressources, des outils et des formats pour la <strong>conception</strong>, la <strong>transformation</strong> et la <strong>mise en œuvre</strong> de leurs dispositifs de formation. Nous explorons et outillons des approches concrètes : <em>hybridation</em> et <em>comodalité</em>, <em>gamification</em> et <em>serious games</em>, <em>approche par compétences</em> et <em>alignement pédagogique</em>, <em>usage raisonné de l’intelligence artificielle</em>, <em>design pédagogique</em> et <em>innovation frugale</em>.
-                </p>
-                <p class="mb-2">
-                  Notre posture : partir des <strong>besoins réels des utilisateur·rice·s</strong>, faire simple et efficace, documenter, mesurer, partager. Notre approche est <strong>anthropocentrée</strong> et non technocentrée : la technologie est au service de l’humain, pas l’inverse. L’objectif est d’augmenter la qualité de l’enseignement et de l’apprentissage tout en respectant les contraintes de temps et de moyens des équipes pédagogiques.
-                </p>
-                <p class="mb-0">
-                  Nous nous conformons par ailleurs aux <strong><a href="https://www.unesco.org/fr/open-educational-resources" target="_blank" rel="noopener" class="link-primary text-decoration-none">Ressources Éducatives Libres (REL / OER)</a></strong> telles que définies par l’UNESCO : des contenus, données et outils publiés sous <strong>licences ouvertes</strong> qui en permettent l’<strong>accès</strong>, l’<strong>utilisation</strong>, l’<strong>adaptation</strong> et la <strong>redistribution</strong> par la communauté éducative. Autant que possible, nous privilégions des pratiques d’<em>ouverture</em> (licences libres, mutualisation, réutilisabilité) et des formats interopérables pour faciliter la circulation des savoirs au sein de la communauté pédagogique.
-                </p>
-              </div>
+    <main>
+      <section class="section-shell">
+        <div class="container">
+          <div class="section-intro mb-5">
+            <span class="eyebrow text-dark bg-white border-0 shadow-sm"><i class="fa-solid fa-circle-nodes"></i> Mission</span>
+            <h2 class="section-title mt-3">Explorer, concevoir, transformer, partager</h2>
+            <p class="section-copy mb-0">
+              Le OpenLab met à disposition des repères, des méthodes, des réalisations et des ressources qui montrent
+              comment une ingénierie pédagogique sobre peut soutenir l'enseignement supérieur sans ajouter de lourdeur inutile.
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-xl-3">
+              <article class="surface-card accent-border-primary h-100">
+                <div class="card-body">
+                  <p class="card-kicker">Axe 01</p>
+                  <h3 class="card-title">Conception de dispositifs</h3>
+                  <p class="mb-0">Alignement pédagogique, architecture de parcours, structuration des activités, articulation présence-distance et scénarisation de l'expérience.</p>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <article class="surface-card accent-border-secondary h-100">
+                <div class="card-body">
+                  <p class="card-kicker">Axe 02</p>
+                  <h3 class="card-title">Formats engageants</h3>
+                  <p class="mb-0">Gamification, serious games, dispositifs narratifs, ressources interactives et approches actives pensées pour les contraintes réelles de terrain.</p>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <article class="surface-card accent-border-coral h-100">
+                <div class="card-body">
+                  <p class="card-kicker">Axe 03</p>
+                  <h3 class="card-title">Ressources ouvertes</h3>
+                  <p class="mb-0">Documentation, mutualisation, réutilisabilité, formats interopérables et diffusion de contenus sous licences ouvertes lorsque cela est possible.</p>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <article class="surface-card accent-border-amber h-100">
+                <div class="card-body">
+                  <p class="card-kicker">Axe 04</p>
+                  <h3 class="card-title">Veille et discernement</h3>
+                  <p class="mb-0">Observation critique des tendances, repérage des signaux utiles, et mise en perspective des usages de l'IA, du numérique et des innovations pédagogiques.</p>
+                </div>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
-      
+      <section id="realisations" class="section-shell section-soft">
+        <div class="container">
+          <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3 mb-5">
+            <div class="section-intro mb-0">
+              <span class="eyebrow text-dark bg-white border-0 shadow-sm"><i class="fa-solid fa-sparkles"></i> Réalisations</span>
+              <h2 class="section-title mt-3">Deux exemples déjà en ligne</h2>
+              <p class="section-copy mb-0">
+                Ces projets montrent deux versants complémentaires du travail mené au OpenLab :
+                la conception d'une vitrine événementielle orientée action et la production d'une ressource pédagogique immersive.
+              </p>
+            </div>
+            <div class="section-actions">
+              <a class="btn btn-outline-primary" href="pedagogie.html">
+                <i class="fa-solid fa-arrow-right me-2"></i>Voir l'approche détaillée
+              </a>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <article class="realisation-card surface-card h-100">
+                <div class="card-body">
+                  <span class="badge-soft mb-3">Site événementiel</span>
+                  <h3 class="card-title">Trophées de l'entrepreneuriat à impact</h3>
+                  <p>
+                    Un site de présentation orienté conversion, pensé pour rendre lisibles un appel à candidatures,
+                    les informations clés, le programme, le jury et les modalités de participation.
+                  </p>
+                  <ul class="clean-list mb-4">
+                    <li>Hiérarchie d'information directe et actionnable.</li>
+                    <li>Parcours utilisateur simple autour de la candidature.</li>
+                    <li>Design institutionnel clair, adapté à un public large.</li>
+                  </ul>
+                  <a class="resource-link" href="https://cliiip-openlab.github.io/trophees-entrepreneuriat-impact-2526/" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>Voir le site des Trophées
+                  </a>
+                </div>
+              </article>
+            </div>
+            <div class="col-lg-6">
+              <article class="realisation-card surface-card h-100">
+                <div class="card-body">
+                  <span class="badge-soft mb-3">Ressource immersive</span>
+                  <h3 class="card-title">L'Odyssée de l'enseignement</h3>
+                  <p>
+                    Un livre-jeu pédagogique en ligne qui articule narration, immersion, repères théoriques et kit
+                    de conception pour faire découvrir le potentiel des récits à embranchements.
+                  </p>
+                  <ul class="clean-list mb-4">
+                    <li>Univers éditorial fort et expérience de lecture différenciante.</li>
+                    <li>Articulation entre sensibilisation, théorie et mise en pratique.</li>
+                    <li>Exemple concret de serious game et de scénarisation pédagogique.</li>
+                  </ul>
+                  <a class="resource-link" href="https://cliiip-openlab.github.io/livre-jeu-odyssee-enseignement/" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>Voir le site de l'Odyssée
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="container">
+          <div class="row g-4 align-items-stretch">
+            <div class="col-lg-7">
+              <article class="page-panel accent-border-primary h-100">
+                <div class="card-body">
+                  <p class="card-kicker">Méthode</p>
+                  <h2 class="section-title h3">Une démarche de conception pédagogique fondée sur ADDIE</h2>
+                  <ol class="number-list mt-4">
+                    <li><div><strong>Analyse.</strong><br>Identifier les besoins, les objectifs d'apprentissage, les contraintes du contexte et les caractéristiques des publics.</div></li>
+                    <li><div><strong>Design.</strong><br>Structurer le parcours, définir les activités, les modalités pédagogiques, les supports et les critères d'évaluation.</div></li>
+                    <li><div><strong>Développement.</strong><br>Produire les ressources, formaliser les séquences, préparer les contenus et outiller le dispositif.</div></li>
+                    <li><div><strong>Implémentation.</strong><br>Déployer le dispositif, accompagner sa mise en oeuvre et assurer les ajustements nécessaires en situation.</div></li>
+                    <li><div><strong>Évaluation.</strong><br>Mesurer les effets, recueillir les retours, analyser les écarts et améliorer progressivement le dispositif.</div></li>
+                  </ol>
+                </div>
+              </article>
+            </div>
+            <div class="col-lg-5">
+              <article class="page-panel accent-border-coral h-100">
+                <div class="card-body">
+                  <p class="card-kicker">Ressources éducatives libres</p>
+                  <h2 class="h3">Faire circuler les savoirs</h2>
+                  <p>
+                    Le OpenLab s'inscrit dans une logique de mutualisation : autant que possible, les contenus,
+                    méthodes et supports sont pensés pour être repris, adaptés et discutés par la communauté pédagogique.
+                  </p>
+                  <p class="mb-4">
+                    Cette orientation rejoint l'esprit des <a href="https://www.unesco.org/fr/open-educational-resources" target="_blank" rel="noopener">Ressources Éducatives Libres</a> :
+                    accessibilité, réutilisation, adaptation et diffusion.
+                  </p>
+                  <a class="btn btn-outline-primary" href="veille.html">
+                    <i class="fa-solid fa-rss me-2"></i>Explorer la veille
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell pt-0">
+        <div class="container">
+          <div class="cta-band p-4 p-lg-5">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-8">
+                <p class="card-kicker text-white-50 mb-2">Parcours du site</p>
+                <h2 class="section-title h3 text-white mb-3">Une vitrine qui articule vision, méthode, veille et réalisations</h2>
+                <p class="mb-0">
+                  L'ensemble met en relation l'approche pédagogique, les repères de veille, le positionnement du OpenLab
+                  et des exemples concrets déjà publiés.
+                </p>
+              </div>
+              <div class="col-lg-4">
+                <div class="d-grid gap-2">
+                  <a class="btn btn-light" href="pedagogie.html">Approche pédagogique</a>
+                  <a class="btn btn-outline-light" href="about.html">À propos du OpenLab</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="border-top py-4">
-      <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
-        <span class="text-body-secondary small">
+    <footer class="footer-shell border-top py-4">
+      <div class="container d-flex justify-content-center align-items-center text-center">
+        <span class="footer-text small">
           <i class="fa-solid fa-flask me-2 text-warning"></i><strong>CLI Ingénierie &amp; Innovation Pédagogique — OpenLab</strong>
-        </span>
-        <span class="text-body-secondary small">
-          <i class="fa-solid fa-palette me-2 text-body-secondary"></i>Design : CLI Ingénierie et Innovation Pédagogique
         </span>
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Theme auto (respecte le thème de l’appareil) -->
-    <script>
-      (() => {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        const setTheme = () => {
-          document.documentElement.setAttribute('data-bs-theme', prefersDark.matches ? 'dark' : 'light');
-        };
-        setTheme();
-        prefersDark.addEventListener('change', setTheme);
-      })();
-    </script>
-    <script>
-      // Effets hover/focus pour le menu "TransportMEL" sans CSS externe
-      (function () {
-        const links = document.querySelectorAll('.nav-pill-link');
-        links.forEach(link => {
-          // Transition lissée sur plusieurs propriétés
-          link.style.transition = 'transform .2s ease, background-color .2s ease, box-shadow .2s ease';
-          // Hover
-          link.addEventListener('mouseenter', () => {
-            link.style.backgroundColor = 'rgba(255,255,255,.30)';
-            link.style.transform = 'translateY(-2px)';
-            link.style.boxShadow = '0 2px 8px rgba(0,0,0,.15)';
-          });
-          link.addEventListener('mouseleave', () => {
-            link.style.backgroundColor = 'transparent';
-            link.style.transform = 'none';
-            link.style.boxShadow = 'none';
-          });
-          // Focus (clavier)
-          link.addEventListener('focus', () => {
-            link.style.backgroundColor = 'rgba(255,255,255,.30)';
-            link.style.boxShadow = '0 0 0 .25rem rgba(255,255,255,.35)';
-          });
-          link.addEventListener('blur', () => {
-            link.style.backgroundColor = 'transparent';
-            link.style.boxShadow = 'none';
-          });
-        });
-      })();
-    </script>
-    <script>
-      // Navigation ancrée interne (offset du bandeau fixe)
-      (function () {
-        var HEADER_OFFSET = 80;
-        function scrollToId(id) {
-          var el = document.querySelector(id);
-          if (!el) return;
-          var y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-          // Met à jour l'URL sans recharger
-          if (history && history.pushState) history.pushState(null, '', id);
-        }
-
-        // Desktop : liens internes du bandeau
-        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-          a.addEventListener('click', function (e) {
-            var hash = a.getAttribute('href');
-            if (!hash || hash === '#') return;
-            // Si c'est un lien dans l'offcanvas, on laisse le handler mobile faire (voir plus bas)
-            if (a.closest('.offcanvas')) return;
-            e.preventDefault();
-            scrollToId(hash);
-          });
-        });
-      })();
-    </script>
+    <script src="assets/js/site.js"></script>
   </body>
 </html>

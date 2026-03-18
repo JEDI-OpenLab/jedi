@@ -3,219 +3,229 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CLI Ingénierie &amp; Innovation Pédagogique – OpenLab</title>
-    <meta name="description" content="CLIIIP-OpenLab — le portail de l’ingénierie et de l’innovation pédagogique de Centrale Lille. Ressources et outils pour l’hybridation, la comodalité, la gamification, l’approche par compétences, l’IA raisonnée, le design pédagogique et l’innovation frugale.">
-    <!-- Bootstrap CSS -->
+    <title>Veille | CLIIIP-OpenLab</title>
+    <meta name="description" content="Carnet de labo pédagogique : l'ensemble des articles de veille intégrés au site du CLIIIP-OpenLab.">
+    <meta property="og:title" content="Veille | CLIIIP-OpenLab">
+    <meta property="og:description" content="Articles de veille pédagogique classés par chapitres et consultables indépendamment.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-    <style>
-      :root{
-        --brand-primary:#436692;  /* bleu profond */
-        --brand-secondary:#84A3B1;/* bleu-vert doux */
-        --brand-coral:#D07857;    /* corail */
-        --brand-amber:#EDB349;    /* ambre */
-        --brand-neutral:#B6AFAA;  /* gris chaud */
-        --brand-white:#FFFFFF;    /* blanc */
-      }
-      .bg-brand-gradient{background:linear-gradient(135deg,var(--brand-primary) 0%, var(--brand-secondary) 45%, var(--brand-amber) 85%, var(--brand-coral) 100%);}  
-    </style>
-    <!-- Favicon (logo de l'école) -->
-    <link rel="icon" href="PIX/Logo-CentraleLille-valeurs-couleur-RVB.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="PIX/favicon-32.png">
+    <link rel="apple-touch-icon" href="PIX/favicon-180.png">
   </head>
-  <body class="bg-body">
-    <!-- Ancre haut de page -->
-    <div id="top"></div>
-
-    <!-- Bandeau principal / navigation principale -->
-    <div class="fixed-top bg-brand-gradient" role="navigation" aria-label="Bandeau principal" style="box-shadow: 0 2px 8px rgba(0,0,0,.2);">
-      <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between">
-        <div class="d-flex align-items-center">
-          <a href="#top" class="d-inline-block" title="Retour en haut">
-            <img src="PIX/Logo-CentraleLille-valeurs-couleur-RVB.png" alt="Centrale Lille" style="height:40px; width:auto;">
-          </a>
-          <span class="ms-2 text-white fw-semibold d-none d-sm-inline" style="text-shadow:0 1px 2px rgba(0,0,0,.25)">CLI Ingénierie &amp; Innovation Pédagogique — OpenLab</span>
-        </div>
+  <body data-page="veille">
+    <div class="fixed-top site-topbar" role="navigation" aria-label="Navigation principale">
+      <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between gap-3">
+        <a href="index.html" class="brand-lockup d-flex align-items-center text-decoration-none text-white">
+          <img src="PIX/cliiip-openlab.jpg" alt="CLIIIP-OpenLab" style="height:46px; width:46px;">
+          <span class="ms-2 d-none d-sm-inline">
+            <span class="brand-title-top d-block fw-semibold">CLI Ingénierie &amp; Innovation Pédagogique</span>
+            <span class="brand-subtitle-top d-block">OpenLab</span>
+          </span>
+        </a>
         <nav class="d-flex align-items-center">
-          <!-- Bouton hamburger (mobile uniquement) -->
-          <button class="btn btn-light btn-sm d-inline-flex d-sm-none align-items-center"
-                  type="button"
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#menuMobile"
-                  aria-controls="menuMobile"
-                  aria-label="Ouvrir le menu">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-          <div class="d-none d-sm-flex gap-2 bg-white bg-opacity-25 p-1 rounded-4 flex-wrap overflow-auto">
-            <a href="index.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link">
-              <i class="fa-solid fa-house"></i><span class="ms-1">Accueil</span>
-            </a>
-            <a href="pedagogie.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link">
-              <i class="fa-solid fa-chalkboard-user"></i><span class="ms-1">Pédagogie</span>
-            </a>
-            <a href="veille.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link">
-              <i class="fa-solid fa-rss"></i><span class="ms-1">Veille</span>
-            </a>
-            <a href="about.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link">
-              <i class="fa-solid fa-circle-info"></i><span class="ms-1">À propos</span>
-            </a>
+          <button class="btn btn-light btn-sm d-inline-flex d-sm-none align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuMobile" aria-controls="menuMobile" aria-label="Ouvrir le menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="d-none d-sm-flex gap-2 nav-shell p-1 rounded-4 flex-wrap overflow-auto">
+            <a href="index.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="home"><i class="fa-solid fa-house"></i><span class="ms-1">Accueil</span></a>
+            <a href="pedagogie.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="pedagogie"><i class="fa-solid fa-chalkboard-user"></i><span class="ms-1">Pédagogie</span></a>
+            <a href="veille.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="veille"><i class="fa-solid fa-rss"></i><span class="ms-1">Veille</span></a>
+            <a href="about.html" class="px-3 py-2 text-white text-decoration-none d-flex align-items-center rounded-3 nav-pill-link" data-page-link="about"><i class="fa-solid fa-circle-info"></i><span class="ms-1">À propos</span></a>
           </div>
         </nav>
       </div>
     </div>
-
-    <div style="height:64px;"></div>
-
-    <!-- Menu mobile (offcanvas navigation) -->
+    <div class="site-spacer"></div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="menuMobileLabel">
-          <i class="fa-solid fa-flask me-2"></i>CLI Ingénierie &amp; Innovation Pédagogique — OpenLab
-        </h5>
+        <h2 class="offcanvas-title h5 offcanvas-brand" id="menuMobileLabel"><i class="fa-solid fa-flask me-2"></i>CLIIIP-OpenLab</h2>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
       </div>
       <div class="offcanvas-body">
         <div class="d-grid gap-2">
-          <a href="index.html" class="btn btn-outline-primary d-flex align-items-center" data-bs-dismiss="offcanvas">
-            <i class="fa-solid fa-house me-2"></i> Accueil
-          </a>
-          <a href="pedagogie.html" class="btn btn-outline-primary d-flex align-items-center" data-bs-dismiss="offcanvas">
-            <i class="fa-solid fa-chalkboard-user me-2"></i> Pédagogie
-          </a>
-          <a href="veille.html" class="btn btn-outline-primary d-flex align-items-center" data-bs-dismiss="offcanvas">
-            <i class="fa-solid fa-rss me-2"></i> Veille
-          </a>
-          <a href="about.html" class="btn btn-outline-primary d-flex align-items-center" data-bs-dismiss="offcanvas">
-            <i class="fa-solid fa-circle-info me-2"></i> À propos
-          </a>
+          <a href="index.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="home"><i class="fa-solid fa-house me-2"></i>Accueil</a>
+          <a href="pedagogie.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="pedagogie"><i class="fa-solid fa-chalkboard-user me-2"></i>Pédagogie</a>
+          <a href="veille.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="veille"><i class="fa-solid fa-rss me-2"></i>Veille</a>
+          <a href="about.html" class="btn btn-outline-primary d-flex align-items-center" data-page-link="about"><i class="fa-solid fa-circle-info me-2"></i>À propos</a>
         </div>
       </div>
     </div>
-
-    <!-- En-tête / hero OpenLab -->
-    <header class="text-center" style="color:#fff; background:
-      linear-gradient(135deg, rgba(67,102,146,.90) 0%, rgba(132,163,177,.78) 45%, rgba(237,179,73,.70) 85%, rgba(208,120,87,.78) 100%),
-      url('PIX/CLIIIP-OpenLab.png') center/cover no-repeat;">
+    <header class="hero-shell">
       <div class="container py-5">
-        <div class="row py-lg-4">
-          <div class="col-lg-10 col-md-12 mx-auto">
-            <div class="mb-3">
-              <i class="fa-solid fa-flask" style="font-size: 3rem;"></i>
-            </div>
-            <h1 class="display-5 fw-bold" style="text-shadow:0 1px 2px rgba(0,0,0,.25)">CLI Ingénierie &amp; Innovation Pédagogique — OpenLab</h1>
+        <div class="row align-items-center g-4 py-lg-5">
+          <div class="col-lg-7">
+            <span class="eyebrow"><i class="fa-solid fa-rss"></i> Carnet de labo pédagogique</span>
+            <h1 class="hero-title mt-3">Articles de veille pédagogique</h1>
+            <p class="hero-lead mt-4 mb-0">Le carnet de labo pédagogique regroupe des notes de veille classées par chapitres thématiques.</p>
+          </div>
+          <div class="col-lg-5">
+            <article class="hero-panel cover-panel">
+              <div class="card-body">
+                <img src="PIX/carnet-labo-pedago.png" alt="Couverture du Carnet de labo pédago" class="cover-thumb mb-3">
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </header>
-
-    <main class="container mb-5">
-
-
-
-
-      <!-- Section de bienvenue / présentation OpenLab -->
-      <section id="bienvenue" class="py-5" style="scroll-margin-top: 80px;">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <h2 class="h3 mb-0"><i class="fa-solid fa-rss me-2"></i>Veille</h2>
-         
-        </div>
-
-        <div class="row g-3 justify-content-center text-center">
-          <div class="col-12 col-lg-8">
-            <div class="card border-0 shadow-sm py-5">
-              <div class="card-body">
-                <i class="fa-solid fa-person-digging fa-3x mb-3" style="color:var(--brand-primary);"></i>
-                <h3 class="h5">Cette page est en construction</h3>
-                <p class="mb-0 text-body-secondary">Le contenu de la rubrique <strong>Veille</strong> sera bientôt disponible.</p>
-              </div>
-            </div>
+    <main>
+      <section class="section-shell">
+        <div class="container">
+          <div class="section-intro mb-5">
+            <span class="eyebrow text-dark bg-white border-0 shadow-sm"><i class="fa-solid fa-book-journal-whills"></i> Sommaire</span>
+            <h2 class="section-title mt-3">14 articles classés en 5 chapitres</h2>
+            <p class="page-intro mb-0">Chaque entrée ci-dessous ouvre sur un article autonome reprenant l'intégralité du contenu du document source.</p>
           </div>
+          <section class="chapter-block mb-5">
+  <div class="d-flex align-items-center gap-3 mb-3">
+    <span class="badge-soft">Chapitre 1 - Égalité</span>
+  </div>
+  <div class="row g-4"><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/lapproche-pedagogique-inclusive.html">L’approche pédagogique inclusive</a></h3>
+      <p class="mb-0">Cet article présente l&#x27;approche pédagogique inclusive qui vise à reconnaître et à répondre aux besoins d&#x27;apprentissage individuels de tous les apprenants. Cette approche éducative reconnaît la diversité des apprenants et encourage l&#x27;adaptation de l&#x27;enseignemen…</p>
+      <div class="d-flex flex-wrap gap-2 mt-3"><span class="badge-soft">Accessibilité</span><span class="badge-soft">Adaptation</span><span class="badge-soft">Apprentissage</span><span class="badge-soft">Inclusivité</span><span class="badge-soft">Universel</span></div>
+    </div>
+  </article>
+</div><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/la-conception-universelle-de-lapprentissage.html">La conception universelle de l’apprentissage</a></h3>
+      <p class="mb-0">Ce billet présente la Conception Universelle de l&#x27;Apprentissage (CUA), c’est-à-dire un cadre pédagogique flexible et inclusif permettant aux enseignants de programmer et d&#x27;organiser l&#x27;enseignement en proposant différents moyens de représentation, d&#x27;action et d…</p>
+      <div class="d-flex flex-wrap gap-2 mt-3"><span class="badge-soft">Action</span><span class="badge-soft">Engagement</span><span class="badge-soft">Expression</span><span class="badge-soft">Inclusion</span><span class="badge-soft">Représentation</span></div>
+    </div>
+  </article>
+</div></div>
+</section><section class="chapter-block mb-5">
+  <div class="d-flex align-items-center gap-3 mb-3">
+    <span class="badge-soft">Chapitre 2 - Cohérence</span>
+  </div>
+  <div class="row g-4"><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/lalignement-pedagogique-quesaco.html">L’alignement pédagogique : quésaco ?</a></h3>
+      <p class="mb-0">Cet article présente le concept d&#x27;alignement pédagogique, qui consiste à assurer la cohérence entre les objectifs d&#x27;apprentissage, les contenus de cours, les méthodes pédagogiques et les stratégies d&#x27;évaluation. Cette méthode permet de promouvoir un apprentiss…</p>
+      <div class="d-flex flex-wrap gap-2 mt-3"><span class="badge-soft">Alignement pédagogique</span><span class="badge-soft">Apprentissage</span><span class="badge-soft">Cohérence</span><span class="badge-soft">Constructivisme</span><span class="badge-soft">Enseignement</span></div>
+    </div>
+  </article>
+</div><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/evaluation-arbitraire-objectivite-et-subjectivite.html">Évaluation : arbitraire, objectivité et subjectivité</a></h3>
+      <p class="mb-0">Cet article présente l&#x27;objectivité et la subjectivité dans l&#x27;évaluation, soulignant l&#x27;inévitabilité de la subjectivité et la recherche d&#x27;une évaluation non-arbitraire et équitable.</p>
+      <div class="d-flex flex-wrap gap-2 mt-3"><span class="badge-soft">Arbitraire, Décision, Évaluation, Objectivité, Subjectivité</span></div>
+    </div>
+  </article>
+</div></div>
+</section><section class="chapter-block mb-5">
+  <div class="d-flex align-items-center gap-3 mb-3">
+    <span class="badge-soft">Chapitre 3 - Créativité</span>
+  </div>
+  <div class="row g-4"><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/world-cafe-une-methode-d-ideation-pour-stimuler-la-creativite-et-la-collaboration.html">World Café : une méthode d&#x27;idéation pour stimuler la créativité et la collaboration</a></h3>
+      <p class="mb-0">Cet article présente la méthode d&#x27;idéation du World Café, qui favorise la collaboration et la créativité entre les participants pour générer des idées novatrices sur une problématique commune. Cette méthode peut être utilisée dans différents contextes, notamme…</p>
+      <div class="d-flex flex-wrap gap-2 mt-3"><span class="badge-soft">Collaboration, Créativité, Idéation, Intelligence collective, World Café</span></div>
+    </div>
+  </article>
+</div><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/nudge-et-education.html">Nudge et Éducation</a></h3>
+      <p class="mb-0">Les Nudges sont des dispositifs d&#x27;incitation positive conçus pour influencer subtilement les comportements des individus sans les contraindre (par exemple : le passage piéton).</p>
+      
+    </div>
+  </article>
+</div><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/la-motivation-des-apprenant-e-s.html">La motivation des apprenant·e·s</a></h3>
+      <p class="mb-0">La motivation est une force dynamique qui trouve ses racines dans les perceptions des apprenant·e·s qu&#x27;il·elle·s entretiennent à la fois d&#x27;eux-mêmes et de l&#x27;environnement d&#x27;apprentissage qui les entoure. Elle exerce une influence profonde sur le niveau d&#x27;engag…</p>
+      
+    </div>
+  </article>
+</div></div>
+</section><section class="chapter-block mb-5">
+  <div class="d-flex align-items-center gap-3 mb-3">
+    <span class="badge-soft">Chapitre 4 - Éducation du futur</span>
+  </div>
+  <div class="row g-4"><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/rapport-du-groupe-de-travail-enseigner-la-transition-ecologique-dans-le-superieur.html">Rapport du groupe de travail « Enseigner la transition écologique dans le supérieur »</a></h3>
+      <p class="mb-0">Le rapport, remis à Frédérique Vidal, Ministre de l&#x27;Enseignement Supérieur, de la Recherche et de l&#x27;Innovation, se concentre sur l&#x27;intégration de la transition écologique dans l&#x27;enseignement supérieur français. Il propose un socle commun de connaissances sur l…</p>
+      <div class="d-flex flex-wrap gap-2 mt-3"><span class="badge-soft">Écologie</span><span class="badge-soft">Éducation</span><span class="badge-soft">Enseignement supérieur</span><span class="badge-soft">Transition écologique</span><span class="badge-soft">Transformation pédagogique</span></div>
+    </div>
+  </article>
+</div><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/former-lingenieur-du-xxie-siecle-pour-lintegration-des-enjeux-socio-ecologiques-en-formation-dingenieur.html">Former l’ingénieur du XXIe siècle pour l’intégration des enjeux socio-écologiques en formation d’ingénieur</a></h3>
+      <p class="mb-0">Ce guide méthodologique, élaboré par The Shift Project en partenariat avec le Groupe INSA, vise à intégrer les enjeux socio-écologiques dans la formation des ingénieurs. Il propose des méthodes pour réaliser un état des lieux, établir un programme complet et c…</p>
+      <div class="d-flex flex-wrap gap-2 mt-3"><span class="badge-soft">Écologie</span><span class="badge-soft">Enseignement</span><span class="badge-soft">Ingénierie</span><span class="badge-soft">Société résiliente</span><span class="badge-soft">Transition écologique</span></div>
+    </div>
+  </article>
+</div><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/manifeste-former-lingenieur-du-xxie-siecle-pour-lintegration-des-enjeux-socio-ecologiques-en-formation-dingenieur.html">Manifeste Former l’ingénieur du XXIe siècle pour l’intégration des enjeux socio-écologiques en formation d’ingénieur</a></h3>
+      <p class="mb-0">Ce manifeste, élaboré par The Shift Project en partenariat avec le Groupe INSA, vise à transformer la formation des ingénieurs pour intégrer les enjeux socio-écologiques. Il aborde la nécessité de repenser les compétences et connaissances des ingénieurs pour q…</p>
+      
+    </div>
+  </article>
+</div><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/manuel-de-la-grande-transition.html">Manuel de la Grande Transition</a></h3>
+      <p class="mb-0">Le &quot;Manuel de la Grande Transition&quot; est une publication exhaustive qui propose un parcours pédagogique pour comprendre et répondre aux multiples dimensions des défis environnementaux et sociaux du 21e siècle. Il aborde les aspects systémiques de la transition …</p>
+      
+    </div>
+  </article>
+</div></div>
+</section><section class="chapter-block mb-5">
+  <div class="d-flex align-items-center gap-3 mb-3">
+    <span class="badge-soft">Chapitre 5 – Intelligence Artificielle</span>
+  </div>
+  <div class="row g-4"><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/chatgpt-c-est-quoi.html">ChatGPT : c&#x27;est quoi ?</a></h3>
+      <p class="mb-0">ChatGPT est un chatbot qui s&#x27;appuie sur un LLM (Large Language Model // Grand modèle de langage.) basé sur l&#x27;architecture GPT (Generative Pre-trained Transformer), développé par OpenAI. OpenAI est une entreprise fondée en partie par Elon Musk et qui a bénéfici…</p>
+      
+    </div>
+  </article>
+</div><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/chatgpt-et-l-intelligence-artificielle-dans-l-enseignement-superieur.html">ChatGPT et l&#x27;intelligence artificielle dans l&#x27;enseignement supérieur</a></h3>
+      <p class="mb-0">Le guide intitulé &quot;ChatGPT et l&#x27;intelligence artificielle dans l&#x27;enseignement supérieur : Guide de démarrage rapide&quot; est une publication de l&#x27;UNESCO IESALC de 2023. Il présente une introduction à ChatGPT, un outil d&#x27;intelligence artificielle (IA), et explore s…</p>
+      <div class="d-flex flex-wrap gap-2 mt-3"><span class="badge-soft">ChatGPT</span><span class="badge-soft">Enseignement Supérieur</span><span class="badge-soft">Éthique</span><span class="badge-soft">Innovation Pédagogique</span><span class="badge-soft">Intelligence Artificielle</span></div>
+    </div>
+  </article>
+</div><div class="col-lg-6">
+  <article class="resource-card article-index-card h-100">
+    <div class="card-body">
+      <h3 class="card-title h4"><a class="stretched-link text-decoration-none" href="veille/ia-retours-d-experience-d-innovember-23.html">IA : Retours d&#x27;expérience d&#x27;Innovember 23</a></h3>
+      <p class="mb-0">Recueil de retours d&#x27;expérience</p>
+      
+    </div>
+  </article>
+</div></div>
+</section>
         </div>
       </section>
-
-      
     </main>
-
-    <footer class="border-top py-4">
-      <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
-        <span class="text-body-secondary small">
-          <i class="fa-solid fa-flask me-2 text-warning"></i><strong>CLI Ingénierie &amp; Innovation Pédagogique — OpenLab</strong>
-        </span>
-        <span class="text-body-secondary small">
-          <i class="fa-solid fa-palette me-2 text-body-secondary"></i>Design : CLI Ingénierie et Innovation Pédagogique
-        </span>
+    <footer class="footer-shell border-top py-4">
+      <div class="container d-flex justify-content-center align-items-center text-center">
+        <span class="footer-text small"><i class="fa-solid fa-flask me-2 text-warning"></i><strong>CLI Ingénierie &amp; Innovation Pédagogique — OpenLab</strong></span>
       </div>
     </footer>
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Theme auto (respecte le thème de l’appareil) -->
-    <script>
-      (() => {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        const setTheme = () => {
-          document.documentElement.setAttribute('data-bs-theme', prefersDark.matches ? 'dark' : 'light');
-        };
-        setTheme();
-        prefersDark.addEventListener('change', setTheme);
-      })();
-    </script>
-    <script>
-      // Effets hover/focus pour le menu "TransportMEL" sans CSS externe
-      (function () {
-        const links = document.querySelectorAll('.nav-pill-link');
-        links.forEach(link => {
-          // Transition lissée sur plusieurs propriétés
-          link.style.transition = 'transform .2s ease, background-color .2s ease, box-shadow .2s ease';
-          // Hover
-          link.addEventListener('mouseenter', () => {
-            link.style.backgroundColor = 'rgba(255,255,255,.30)';
-            link.style.transform = 'translateY(-2px)';
-            link.style.boxShadow = '0 2px 8px rgba(0,0,0,.15)';
-          });
-          link.addEventListener('mouseleave', () => {
-            link.style.backgroundColor = 'transparent';
-            link.style.transform = 'none';
-            link.style.boxShadow = 'none';
-          });
-          // Focus (clavier)
-          link.addEventListener('focus', () => {
-            link.style.backgroundColor = 'rgba(255,255,255,.30)';
-            link.style.boxShadow = '0 0 0 .25rem rgba(255,255,255,.35)';
-          });
-          link.addEventListener('blur', () => {
-            link.style.backgroundColor = 'transparent';
-            link.style.boxShadow = 'none';
-          });
-        });
-      })();
-    </script>
-    <script>
-      // Navigation ancrée interne (offset du bandeau fixe)
-      (function () {
-        var HEADER_OFFSET = 80;
-        function scrollToId(id) {
-          var el = document.querySelector(id);
-          if (!el) return;
-          var y = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-          // Met à jour l'URL sans recharger
-          if (history && history.pushState) history.pushState(null, '', id);
-        }
-
-        // Desktop : liens internes du bandeau
-        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-          a.addEventListener('click', function (e) {
-            var hash = a.getAttribute('href');
-            if (!hash || hash === '#') return;
-            // Si c'est un lien dans l'offcanvas, on laisse le handler mobile faire (voir plus bas)
-            if (a.closest('.offcanvas')) return;
-            e.preventDefault();
-            scrollToId(hash);
-          });
-        });
-      })();
-    </script>
+    <script src="assets/js/site.js"></script>
   </body>
 </html>
