@@ -56,10 +56,16 @@ a:hover {
   backdrop-filter: blur(12px);
 }
 
+.site-topbar .container-fluid {
+  gap: 0.9rem !important;
+}
+
 .brand-lockup {
+  flex: 1 1 auto;
   min-width: 0;
 }
 
+.brand-mark,
 .brand-lockup img {
   height: 46px !important;
   width: 46px !important;
@@ -71,13 +77,14 @@ a:hover {
 }
 
 .brand-title-top {
-  font-size: 0.98rem;
+  font-size: 0.94rem;
   line-height: 1.15;
   letter-spacing: 0.01em;
 }
 
 .brand-subtitle-top {
-  font-size: 0.73rem;
+  display: none !important;
+  font-size: 0.68rem;
   opacity: 0.92;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -375,6 +382,12 @@ a:hover {
   letter-spacing: 0.01em;
 }
 
+.footer-version {
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .footer-shell strong,
 .footer-shell a {
   color: var(--brand-white);
@@ -487,6 +500,12 @@ a:hover {
 
   .section-shell {
     padding: 3.5rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .brand-subtitle-top {
+    display: block !important;
   }
 }
 
