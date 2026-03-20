@@ -119,7 +119,7 @@ a:hover {
   color: var(--brand-white);
   background:
     linear-gradient(135deg, rgba(22, 48, 66, 0.9) 0%, rgba(67, 102, 146, 0.84) 38%, rgba(132, 163, 177, 0.72) 70%, rgba(237, 179, 73, 0.68) 100%),
-    url("../../PIX/cliiip-openlab.jpg") center/cover no-repeat;
+    url("../../PIX/jedi-openlab.png") center/cover no-repeat;
 }
 
 .hero-shell::after {
