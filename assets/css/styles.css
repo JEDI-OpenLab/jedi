@@ -120,6 +120,15 @@ a:hover {
   color: var(--brand-primary);
 }
 
+.site-offcanvas[data-bs-theme="light"] {
+  background: rgba(255, 255, 255, 0.98);
+  color: var(--brand-ink);
+}
+
+.site-offcanvas[data-bs-theme="dark"] {
+  background: rgba(22, 48, 66, 0.98);
+}
+
 .hero-shell {
   position: relative;
   overflow: hidden;

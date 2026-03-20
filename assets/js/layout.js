@@ -1,6 +1,7 @@
 (() => {
   const siteVersion = "2026-03-20.1";
   const siteTagline = "Open pedagogy, engineered with care.";
+  const getTheme = () => document.documentElement.getAttribute("data-bs-theme") || "light";
   const pathname = window.location.pathname;
   const currentFile = pathname.split("/").pop() || "index.html";
   const isVeilleArticle = pathname.includes("/veille/") && currentFile !== "veille.html";
@@ -31,7 +32,10 @@
     )
     .join("");
 
-  const headerMarkup = `
+  const renderLayout = () => {
+    const theme = getTheme();
+
+    const headerMarkup = `
     <div class="fixed-top site-topbar" role="navigation" aria-label="Navigation principale">
       <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between gap-3">
         <a href="${root}index.html" class="brand-lockup d-flex align-items-center text-decoration-none text-white">
@@ -52,7 +56,7 @@
       </div>
     </div>
     <div class="site-spacer"></div>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
+    <div class="offcanvas offcanvas-end site-offcanvas" data-bs-theme="${theme}" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
       <div class="offcanvas-header">
         <h2 class="offcanvas-title h5 offcanvas-brand" id="menuMobileLabel"><i class="fa-solid fa-flask me-2"></i>JEDI-OpenLab</h2>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
@@ -64,7 +68,7 @@
       </div>
     </div>`;
 
-  const footerMarkup = `
+    const footerMarkup = `
     <footer class="footer-shell border-top py-4">
       <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-2 text-center text-lg-start">
         <span class="footer-text small"><i class="fa-solid fa-flask me-2 text-warning"></i><strong>JEDI-OpenLab</strong> · ${siteTagline}</span>
@@ -72,11 +76,23 @@
       </div>
     </footer>`;
 
-  document.querySelectorAll("[data-site-header]").forEach((node) => {
-    node.outerHTML = headerMarkup;
-  });
+    document.querySelectorAll("[data-site-header]").forEach((node) => {
+      node.outerHTML = headerMarkup;
+    });
 
-  document.querySelectorAll("[data-site-footer]").forEach((node) => {
-    node.outerHTML = footerMarkup;
-  });
+    document.querySelectorAll("[data-site-footer]").forEach((node) => {
+      node.outerHTML = footerMarkup;
+    });
+  };
+
+  const syncThemeOnLayout = () => {
+    const theme = getTheme();
+    document.querySelectorAll(".site-offcanvas").forEach((node) => {
+      node.setAttribute("data-bs-theme", theme);
+    });
+  };
+
+  renderLayout();
+  syncThemeOnLayout();
+  document.addEventListener("jedi:theme-change", syncThemeOnLayout);
 })();
