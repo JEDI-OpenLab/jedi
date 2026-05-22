@@ -1,5 +1,5 @@
 (() => {
-  const siteVersion = "2026-03-20.1";
+  const siteVersion = "2026-05-22.1";
   const siteTagline = "Open pedagogy, engineered with care.";
   const getTheme = () => document.documentElement.getAttribute("data-bs-theme") || "light";
   const pathname = window.location.pathname;
