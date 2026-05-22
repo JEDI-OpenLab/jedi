@@ -1,6 +1,6 @@
 (() => {
   const siteVersion = "2026-05-22.1";
-  const siteTagline = "Open pedagogy, engineered with care.";
+  const siteTagline = "Pédagogie ouverte, conçue avec soin.";
   const getTheme = () => document.documentElement.getAttribute("data-bs-theme") || "light";
   const pathname = window.location.pathname;
   const currentFile = pathname.split("/").pop() || "index.html";
@@ -9,6 +9,7 @@
 
   const navItems = [
     { id: "home", href: `${root}index.html`, icon: "fa-house", label: "Accueil" },
+    { id: "projets", href: `${root}projets.html`, icon: "fa-diagram-project", label: "Projets" },
     { id: "pedagogie", href: `${root}pedagogie.html`, icon: "fa-chalkboard-user", label: "Pédagogie" },
     { id: "veille", href: `${root}veille.html`, icon: "fa-rss", label: "Veille" },
     { id: "about", href: `${root}about.html`, icon: "fa-circle-info", label: "À propos" },
