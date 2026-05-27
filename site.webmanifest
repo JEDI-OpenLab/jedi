@@ -1,0 +1,27 @@
+{
+  "name": "JEDI-OpenLab",
+  "short_name": "JEDI-OpenLab",
+  "description": "Jean pour l’Éducation, le Design et l’Innovation.",
+  "start_url": "https://jedi-openlab.github.io/jedi/",
+  "scope": "https://jedi-openlab.github.io/jedi/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#436692",
+  "icons": [
+    {
+      "src": "PIX/jedi-favicon-32-2026.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "PIX/jedi-favicon-180-2026.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "PIX/jedi-openlab-social-2026.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
