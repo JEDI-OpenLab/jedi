@@ -199,6 +199,7 @@ a:hover {
 .hero-title {
   font-size: 4rem;
   line-height: 0.98;
+  max-width: 100%;
   overflow-wrap: anywhere;
 }
 
@@ -239,6 +240,7 @@ a:hover {
   border-radius: var(--radius-xl);
   background: var(--surface-strong);
   box-shadow: var(--shadow-card);
+  min-width: 0;
   max-width: 100%;
   overflow-wrap: anywhere;
 }
@@ -466,6 +468,137 @@ a:hover {
   color: var(--brand-primary);
 }
 
+.veille-reader-app:empty {
+  display: none;
+}
+
+.veille-reader-grid {
+  display: grid;
+  grid-template-columns: minmax(15rem, 18rem) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  min-width: 0;
+}
+
+.has-veille-reader .veille-source {
+  display: none;
+}
+
+.veille-toc-panel {
+  position: sticky;
+  top: 6rem;
+  max-height: calc(100vh - 7.5rem);
+  overflow: auto;
+  min-width: 0;
+}
+
+.veille-toc-panel .card-body,
+.veille-reader-panel .card-body {
+  padding: 1.35rem;
+}
+
+.veille-toc-nav,
+.veille-toc-chapter {
+  display: grid;
+  gap: 1rem;
+}
+
+.veille-toc-chapter-title {
+  margin: 0;
+  color: var(--brand-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.veille-toc-list {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.veille-toc-link {
+  display: block;
+  padding: 0.62rem 0.72rem;
+  border-left: 4px solid transparent;
+  border-radius: 0 14px 14px 0;
+  color: var(--brand-ink);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.veille-toc-link:hover,
+.veille-toc-link:focus-visible,
+.veille-toc-link.is-active {
+  background: rgba(67, 102, 146, 0.1);
+  border-left-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.veille-reader-panel {
+  min-height: 32rem;
+  min-width: 0;
+  scroll-margin-top: 6rem;
+}
+
+.veille-reader-panel:focus {
+  outline: none;
+}
+
+.veille-reader-title {
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.8rem, 3vw, 2.65rem);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.veille-reader-summary {
+  max-width: 52rem;
+  color: rgba(22, 48, 66, 0.82);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.veille-reader-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.veille-reader-content {
+  padding: 0;
+  margin-top: 1.5rem;
+  color: rgba(22, 48, 66, 0.95);
+  line-height: 1.78;
+}
+
+.veille-reader-content .article-section + .article-section {
+  margin-top: 1.6rem;
+  padding-top: 1.6rem;
+}
+
+.veille-reader-actions {
+  display: flex;
+  margin-top: 1.8rem;
+}
+
+.veille-reader-panel.is-loading .veille-reader-content {
+  opacity: 0.58;
+}
+
 .article-layout {
   max-width: 1280px;
 }
@@ -560,6 +693,16 @@ a:hover {
   .site-topbar .container-fluid {
     flex-wrap: nowrap;
   }
+
+  .veille-reader-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .veille-toc-panel {
+    position: relative;
+    top: auto;
+    max-height: 24rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -620,9 +763,30 @@ a:hover {
   .article-sidebar {
     padding: 1.15rem;
   }
+
+  .veille-reader-panel {
+    min-height: 0;
+  }
+
+  .veille-reader-actions,
+  .veille-reader-actions .btn {
+    width: 100%;
+  }
 }
 
 @media (max-width: 575.98px) {
+  body[data-page="veille"] .hero-title {
+    max-width: 15ch;
+  }
+
+  body[data-page="veille"] .hero-lead,
+  body[data-page="veille"] .page-intro,
+  body[data-page="veille"] .veille-toc-link,
+  body[data-page="veille"] .veille-reader-summary,
+  body[data-page="veille"] .veille-reader-content {
+    max-width: 32ch;
+  }
+
   .brand-mark,
   .brand-lockup img {
     height: 40px !important;
@@ -640,6 +804,8 @@ a:hover {
 
   .hero-title {
     font-size: 2rem;
+    line-height: 1.08;
+    word-break: break-word;
   }
 
   .hero-panel,
