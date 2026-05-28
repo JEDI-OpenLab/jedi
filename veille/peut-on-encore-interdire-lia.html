@@ -88,23 +88,9 @@
                     <p>Ensuite, elle est de plus en plus intégrée par défaut. Les assistants d’écriture, les fonctions de résumé, les retouches d’images, les recherches sémantiques ou les recommandations apparaissent comme des fonctionnalités normales de l’interface.</p>
                     <p>Enfin, elle se déploie à plusieurs niveaux techniques : sur l’appareil, dans le système d’exploitation, dans l’application, dans le navigateur, dans le cloud ou dans une combinaison hybride de ces couches.</p>
                     <p>On peut représenter cette intégration ainsi :</p>
-                    <pre><code>Usager
-   │
-   ▼
-Interface visible
-éditeur, messagerie, galerie photo, navigateur, bureau
-   │
-   ▼
-Couche d’assistance IA
-correction, résumé, classement, recommandation, génération, recherche sémantique
-   │
-   ▼
-Moteurs d’inférence
-modèles locaux, modèles cloud, modèles hybrides, API spécialisées
-   │
-   ▼
-Infrastructure numérique
-système d’exploitation, stockage, cloud, sécurité, matériel NPU/GPU/CPU</code></pre>
+                    <figure class="article-figure">
+                      <img src="../PIX/ia-couche-systemique.png" alt="Schéma de l’IA comme couche systémique, reliant l’usager, l’interface visible, la couche d’assistance IA, les moteurs d’inférence et l’infrastructure numérique." loading="lazy">
+                    </figure>
                     <p>L’IA n’est donc pas seulement une fonctionnalité ; elle devient une médiation entre l’usager et ses propres données.</p>
                   </section>
 
@@ -229,14 +215,11 @@ système d’exploitation, stockage, cloud, sécurité, matériel NPU/GPU/CPU</c
                     <p>Une évolution importante est le déplacement partiel de certains calculs depuis les plateformes distantes vers l’appareil de l’usager. Les raisons sont multiples : confidentialité, latence, coût, disponibilité hors ligne, souveraineté, personnalisation et usage de puces spécialisées.</p>
                     <p>Les ordinateurs et smartphones récents peuvent ainsi prendre en charge certaines opérations : reconnaissance vocale, classification d’images, transcription, résumé court, complétion de texte, recherche sémantique ou petits modèles de langage.</p>
                     <p>Cette dynamique ne supprime pas les services distants. Elle crée plutôt un modèle hybride :</p>
-                    <pre><code>Traitements simples, fréquents ou sensibles
-        → exécution locale sur CPU/GPU/NPU
-
-Traitements complexes ou lourds
-        → cloud spécialisé ou cloud privé
-
-Traitements organisationnels
-        → arbitrage selon politique de sécurité, coût, performance et conformité</code></pre>
+                    <ul>
+                      <li><strong>Traitements simples, fréquents ou sensibles :</strong> exécution locale sur CPU/GPU/NPU.</li>
+                      <li><strong>Traitements complexes ou lourds :</strong> cloud spécialisé ou cloud privé.</li>
+                      <li><strong>Traitements organisationnels :</strong> arbitrage selon politique de sécurité, coût, performance et conformité.</li>
+                    </ul>
                     <p>Windows, macOS et Ubuntu illustrent trois stratégies différentes :</p>
                     <div class="table-responsive">
                       <table class="table table-sm article-table">
