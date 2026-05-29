@@ -12,6 +12,28 @@
 })();
 
 (() => {
+  const enhanceArticleTables = (root = document) => {
+    root.querySelectorAll(".article-table").forEach((table) => {
+      const headers = Array.from(table.querySelectorAll("thead th")).map((cell) => cell.textContent.trim());
+      if (!headers.length) {
+        return;
+      }
+
+      table.querySelectorAll("tbody tr").forEach((row) => {
+        Array.from(row.children).forEach((cell, index) => {
+          if (headers[index]) {
+            cell.dataset.label = headers[index];
+          }
+        });
+      });
+    });
+  };
+
+  window.jediEnhanceArticleTables = enhanceArticleTables;
+  enhanceArticleTables();
+})();
+
+(() => {
   const body = document.body;
   if (body.dataset.page !== "veille") {
     return;
@@ -186,6 +208,7 @@
         const clone = articleBody.cloneNode(true);
         normalizeInsertedLinks(clone, article);
         contentNode.innerHTML = clone.innerHTML;
+        window.jediEnhanceArticleTables?.(contentNode);
       }
     } catch (error) {
       contentNode.innerHTML = article.summary ? `<p>${escapeHtml(article.summary)}</p>` : "";

@@ -8,5 +8,9 @@
   };
 
   applyTheme();
-  mediaQuery.addEventListener("change", applyTheme);
+  if (mediaQuery.addEventListener) {
+    mediaQuery.addEventListener("change", applyTheme);
+  } else {
+    mediaQuery.addListener(applyTheme);
+  }
 })();
