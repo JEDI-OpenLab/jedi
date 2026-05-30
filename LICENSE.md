@@ -1,21 +1,12 @@
-MIT License
+# Licence
 
-Copyright (c) 2026 JEDI-OpenLab
+Sauf mention contraire, les contenus originaux de JEDI-OpenLab sont publiés sous licence Creative Commons Attribution 4.0 International (CC BY 4.0).
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Lien officiel : https://creativecommons.org/licenses/by/4.0/deed.fr
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Cette licence permet de partager, copier, réutiliser, adapter, traduire, modifier, publier et redistribuer les contenus originaux du projet, y compris dans d'autres projets, formations ou contextes institutionnels, à condition de citer correctement l'auteur ou l'autrice, le titre de la ressource, la source et la licence.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+JEDI-OpenLab s'inscrit dans l'esprit de la Recommandation de l'UNESCO sur les ressources éducatives libres :
+https://www.unesco.org/fr/legal-affairs/recommendation-open-educational-resources-oer
+
+Les marques, logiciels, services tiers, documents sources importés dans les corpus, ressources citées, captures d'écran, logos, images, jeux de données, modèles, polices, vidéos, sons et contenus appartenant à des tiers restent soumis à leurs licences et droits respectifs lorsqu'ils sont indiqués.
