@@ -1,0 +1,36 @@
+---
+const { version = '' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const year = 2026;
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">JEDI-OpenLab</div>
+        <div class="footer-tag">Pédagogie ouverte, conçue avec soin.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Explorer</h4>
+          <ul>
+            <li><a href={base + 'projets'}>Projets</a></li>
+            <li><a href={base + 'veille'}>Veille</a></li>
+            <li><a href={base + 'pedagogie'}>Pédagogie</a></li>
+            <li><a href={base + 'about'}>À propos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ouvert</h4>
+          <ul>
+            <li><a href="https://github.com/JEDI-OpenLab" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-fine">
+      <span>© {year} JEDI-OpenLab</span>
+      <span class="version">{version}</span>
+    </div>
+  </div>
+</footer>

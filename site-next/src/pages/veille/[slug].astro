@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const items = await getCollection('veille');
+  return items.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const fmt = (d) => d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+const d = entry.data;
+---
+<Base title={d.title} description={d.summary}>
+  <article class="section">
+    <div class="container">
+      <div style="max-width:72ch;margin-inline:auto">
+        <a class="kicker" href={`${base}veille`} style="text-decoration:none;display:inline-block;margin-bottom:1.2rem">← Veille</a>
+        {d.image && <img class="article-hero-img" src={d.image} alt={d.title} />}
+        <h1 style="font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.2vw,2.9rem);line-height:1.15;margin:.4rem 0 .9rem">{d.title}</h1>
+        <p class="veille-meta" style="margin-bottom:2.4rem">
+          {d.category && <span class="cat-chip">{d.category}</span>}
+          <span class="v-date">{d.dateEstimated ? 'Archive' : fmt(d.date)}</span>
+        </p>
+      </div>
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+
+const principes = [
+  'Partir des besoins réels et non des outils à la mode.',
+  'Rendre les choix pédagogiques lisibles et explicites.',
+  'Documenter pour transmettre et mutualiser.',
+];
+const demarche = [
+  { t: 'Concevoir', s: 'Aligner intentions et activités', b: 'Clarification des objectifs, choix des formats, cohérence entre modalités d’enseignement, consignes, évaluations et productions attendues.' },
+  { t: 'Transformer', s: 'Faire évoluer sans tout reconstruire', b: 'Hybridation, comodalité, réagencement des parcours et amélioration de l’expérience d’apprentissage à partir de l’existant.' },
+  { t: 'Partager', s: 'Documenter ce qui fonctionne', b: 'Production de ressources transmissibles, réutilisables et discutables afin d’éviter que les bonnes idées restent invisibles ou isolées.' },
+];
+const explore = [
+  'Hybridation et comodalité des enseignements.',
+  'Gamification, serious games et formats narratifs.',
+  'Approche par compétences et alignement pédagogique.',
+  'Usages raisonnés de l’intelligence artificielle.',
+  'Design de ressources éducatives ouvertes.',
+  'Innovation frugale et simplification des dispositifs.',
+];
+const addie = [
+  { n: '01', t: 'Analyse', b: 'Identifier les besoins, les objectifs d’apprentissage, les contraintes du contexte et les caractéristiques des publics.' },
+  { n: '02', t: 'Design', b: 'Structurer le parcours, définir les activités, les modalités pédagogiques, les supports et les critères d’évaluation.' },
+  { n: '03', t: 'Développement', b: 'Produire les ressources, formaliser les séquences, préparer les contenus et outiller le dispositif.' },
+  { n: '04', t: 'Implémentation', b: 'Déployer le dispositif, accompagner sa mise en œuvre et assurer les ajustements nécessaires en situation.' },
+  { n: '05', t: 'Évaluation', b: 'Mesurer les effets, recueillir les retours, analyser les écarts et améliorer progressivement le dispositif.' },
+];
+---
+<Base title="Pédagogie" description="Approche pédagogique de JEDI-OpenLab : design de dispositifs, accompagnement des équipes, innovation frugale, serious games, IA raisonnée et ressources ouvertes.">
+  <section class="hero" style="padding-block:clamp(2.5rem,6vw,4.5rem)">
+    <div class="container">
+      <span class="eyebrow">⬡ Approche</span>
+      <h1 class="display" style="font-size:clamp(2.4rem,5vw,3.6rem)">Concevoir moins d’effets, plus d’usage</h1>
+      <p class="lead">L’ingénierie pédagogique de JEDI-OpenLab s’appuie sur une ligne claire : faire des choix de conception compréhensibles, adaptés aux contextes d’enseignement, et suffisamment robustes pour être repris, discutés et améliorés.</p>
+    </div>
+  </section>
+
+  <section class="section band-surface">
+    <div class="container">
+      <div class="section-head"><span class="kicker">Principes directeurs</span><h2 class="section-title">Trois repères simples</h2></div>
+      <div class="grid grid-3">
+        {principes.map((p, i) => (
+          <article class="domain">
+            <span class="num-mark">{'0' + (i + 1)}</span>
+            <p style="color:var(--ink);font-size:1.02rem">{p}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Une pédagogie anthropocentrée et frugale</span>
+        <h2 class="section-title">Concevoir au plus juste</h2>
+        <p class="lead">JEDI-OpenLab travaille la pédagogie comme un problème de conception situé. Il ne s’agit pas d’empiler des solutions, mais d’articuler objectifs, activités, temporalités, modalités d’interaction et supports au plus juste.</p>
+      </div>
+      <div class="grid grid-3">
+        {demarche.map((d) => (
+          <article class="card">
+            <span class="badge badge-gold">{d.s}</span>
+            <h3>{d.t}</h3>
+            <p>{d.b}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-surface">
+    <div class="container">
+      <div class="section-head"><span class="kicker">Ce que JEDI-OpenLab explore</span><h2 class="section-title">Champs d’intervention</h2></div>
+      <div class="explore-grid">
+        {explore.map((e) => <div class="explore-item">{e}</div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Méthode</span>
+        <h2 class="section-title">Une démarche fondée sur ADDIE</h2>
+        <p class="lead">Cinq temps pour concevoir un dispositif solide, de l’analyse du besoin à son amélioration continue.</p>
+      </div>
+      <div class="phase-grid">
+        {addie.map((a) => (
+          <article class="phase">
+            <span class="phase-n">{a.n}</span>
+            <h3>{a.t}</h3>
+            <p>{a.b}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

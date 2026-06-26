@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const items = (await getCollection('veille')).sort((a, b) => {
+  const ea = a.data.dateEstimated ? 1 : 0, eb = b.data.dateEstimated ? 1 : 0;
+  if (ea !== eb) return ea - eb;
+  return b.data.date.valueOf() - a.data.date.valueOf();
+});
+const fmt = (d) => d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+const cats = [...new Set(items.map((a) => a.data.category).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'fr'));
+---
+<Base title="Veille" description="Lectures critiques de JEDI-OpenLab sur l’IA, l’évaluation, la motivation, l’inclusion et les transitions de l’enseignement supérieur.">
+  <section class="hero" style="padding-block:clamp(2.5rem,6vw,4.5rem)">
+    <div class="container">
+      <span class="eyebrow">⬡ Veille</span>
+      <h1 class="display" style="font-size:clamp(2.4rem,5vw,3.6rem)">Comprendre avant d’adopter</h1>
+      <p class="lead">Des lectures critiques sur l’IA, l’évaluation, la motivation, l’inclusion et les transitions de l’enseignement supérieur — classées par thématique.</p>
+    </div>
+  </section>
+
+  <section class="section-tight" style="padding-bottom:clamp(3rem,7vw,5rem)">
+    <div class="container" style="max-width:860px">
+      <div class="veille-toolbar">
+        <div class="veille-filters" role="group" aria-label="Filtrer par thématique">
+          <button class="filter-btn" type="button" data-cat="*" aria-pressed="true">Tout</button>
+          {cats.map((c) => <button class="filter-btn" type="button" data-cat={c} aria-pressed="false">{c}</button>)}
+        </div>
+        <div class="veille-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="20" y1="20" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" id="veilleSearch" placeholder="Rechercher un billet…" aria-label="Rechercher dans la veille" />
+        </div>
+      </div>
+
+      <div class="veille-list" id="veilleList">
+        {items.map((a) => (
+          <div class="veille-item" data-category={a.data.category ?? ''} data-text={(a.data.title + ' ' + a.data.summary).toLowerCase()}>
+            <span class="veille-meta">
+              {a.data.category && <span class="cat-chip">{a.data.category}</span>}
+              <span class="v-date">{a.data.dateEstimated ? 'Archive' : fmt(a.data.date)}</span>
+            </span>
+            <a href={`${base}veille/${a.slug}`}>{a.data.title}</a>
+            <p>{a.data.summary}</p>
+          </div>
+        ))}
+      </div>
+      <p class="veille-empty" id="veilleEmpty" hidden>Aucun billet ne correspond à votre recherche.</p>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const list = document.getElementById('veilleList');
+  const items = Array.from(list ? list.querySelectorAll('.veille-item') : []);
+  const btns = Array.from(document.querySelectorAll('.filter-btn'));
+  const search = document.getElementById('veilleSearch');
+  const empty = document.getElementById('veilleEmpty');
+  let cat = '*';
+  const norm = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  function apply() {
+    const q = norm(search && search.value);
+    let visible = 0;
+    items.forEach((it) => {
+      const okCat = cat === '*' || it.dataset.category === cat;
+      const okQ = !q || norm(it.dataset.text).includes(q);
+      const show = okCat && okQ;
+      it.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (empty) empty.hidden = visible > 0;
+  }
+  btns.forEach((b) => b.addEventListener('click', () => {
+    cat = b.dataset.cat;
+    btns.forEach((x) => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+    apply();
+  }));
+  if (search) search.addEventListener('input', apply);
+</script>

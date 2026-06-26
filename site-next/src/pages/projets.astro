@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects.js';
+---
+<Base title="Projets" description="Ressources éducatives libres de JEDI-OpenLab : Doceria, Learnix, Align-o-matic, Eval-o-matic, Game Design Pédagogique, La Rentrée dont vous êtes le héros, Open Course Kit et L’Odyssée de l’enseignement.">
+  <section class="hero" style="padding-block:clamp(2.5rem,6vw,4.5rem)">
+    <div class="container">
+      <span class="eyebrow">⬡ Projets &amp; réalisations</span>
+      <h1 class="display" style="font-size:clamp(2.4rem,5vw,3.6rem)">Ressources éducatives libres</h1>
+      <p class="lead">Webapps, démonstrateurs, serious games, livre-jeu et guides ouverts — chacun avec sa licence et sa documentation.</p>
+    </div>
+  </section>
+
+  <section class="section-tight" style="padding-bottom:clamp(3rem,7vw,5rem)">
+    <div class="container">
+      <div class="grid grid-3">
+        {projects.map((p) => <ProjectCard {...p} detailed={true} />)}
+      </div>
+    </div>
+  </section>
+</Base>

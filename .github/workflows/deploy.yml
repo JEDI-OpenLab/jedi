@@ -1,0 +1,42 @@
+name: Déploiement GitHub Pages (Astro · site-next)
+
+# Construit le portail Astro (dossier site-next/) et le publie sur GitHub Pages
+# à chaque push sur main. L'auteur n'a qu'à commiter/pousser : tout le reste est automatique.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Une seule publication à la fois, sans annuler une publication en cours
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+      - name: Installer + construire le site Astro
+        uses: withastro/action@v3
+        with:
+          path: site-next        # le projet Astro est dans ce sous-dossier
+          node-version: 20
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publier sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,19 @@
+---
+import Base from './Base.astro';
+const { frontmatter } = Astro.props;
+const { title, description, eyebrow, lead } = frontmatter;
+---
+<Base title={title} description={description}>
+  <section class="hero" style="padding-block:clamp(2.5rem,6vw,4.5rem)">
+    <div class="container">
+      <span class="eyebrow">⬡ {eyebrow ?? title}</span>
+      <h1 class="display" style="font-size:clamp(2.4rem,5vw,3.6rem)">{title}</h1>
+      {lead && <p class="lead">{lead}</p>}
+    </div>
+  </section>
+  <section class="section-tight" style="padding-bottom:clamp(3rem,7vw,5rem)">
+    <div class="container">
+      <div class="prose"><slot /></div>
+    </div>
+  </section>
+</Base>

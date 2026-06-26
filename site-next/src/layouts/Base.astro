@@ -1,0 +1,65 @@
+---
+import '../styles/atelier.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const {
+  title = 'JEDI-OpenLab',
+  description = 'JEDI-OpenLab — ingénierie et innovation pédagogique : pédagogie ouverte, veille, webapps et projets conçus avec soin.',
+} = Astro.props;
+
+const titleFull = title === 'JEDI-OpenLab'
+  ? 'JEDI-OpenLab — Pédagogie ouverte, conçue avec soin'
+  : `${title} · JEDI-OpenLab`;
+
+const SITE_VERSION = '2026-06-26.1';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const ogImage = 'https://jedi-openlab.github.io/jedi/PIX/jedi-openlab-social-2026.png';
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titleFull}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}PIX/jedi-favicon-32-2026.png`} />
+    <link rel="apple-touch-icon" href={`${base}PIX/jedi-favicon-180-2026.png`} />
+    <meta property="og:title" content={titleFull} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    {/* Applique le thème AVANT le premier rendu (anti-flash) */}
+    <script is:inline>
+      (function () {
+        try {
+          var pref = localStorage.getItem('jedi_theme') || 'auto';
+          var dark = pref === 'dark' ||
+            (pref === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var d = document.documentElement;
+          d.dataset.theme = dark ? 'dark' : 'light';
+          d.dataset.themePref = pref;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer version={SITE_VERSION} />
+  </body>
+</html>

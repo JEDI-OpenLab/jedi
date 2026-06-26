@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects.js';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const veille = (await getCollection('veille'))
+  .sort((a, b) => {
+    const ea = a.data.dateEstimated ? 1 : 0, eb = b.data.dateEstimated ? 1 : 0;
+    if (ea !== eb) return ea - eb;
+    return b.data.date.valueOf() - a.data.date.valueOf();
+  })
+  .slice(0, 4);
+const fmt = (d) => d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const domains = [
+  { title: 'Conception de dispositifs', body: 'Alignement pédagogique, architecture de parcours, structuration des activités, articulation présence-distance et scénarisation de l’expérience.' },
+  { title: 'Formats engageants', body: 'Gamification, serious games, dispositifs narratifs, ressources interactives et approches actives pensées pour les contraintes réelles de terrain.' },
+  { title: 'Ressources ouvertes', body: 'Documentation, mutualisation, réutilisabilité, formats interopérables et diffusion de contenus sous licences ouvertes lorsque cela est possible.' },
+  { title: 'Veille et discernement', body: 'Observation critique des tendances, repérage des signaux utiles, et mise en perspective des usages de l’IA, du numérique et des innovations pédagogiques.' },
+];
+---
+<Base>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">⬡ Ingénierie &amp; innovation pédagogique</span>
+      <h1 class="display">JEDI-OpenLab</h1>
+      <p class="tagline">Pédagogie ouverte, conçue avec soin.</p>
+      <p class="lead"><strong>JEDI-OpenLab</strong>, pour Jean pour l’Éducation, le Design et l’Innovation, défend une approche de la pédagogie qui part des besoins réels, allège la complexité, documente les choix de conception et oriente vers des réalisations pédagogiques réutilisables qui tiennent dans le temps.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href={base + 'projets'}>Explorer les projets</a>
+        <a class="btn btn-ghost" href={base + 'pedagogie'}>Découvrir l’approche</a>
+      </div>
+      <div class="pills">
+        <span class="pill">Design pédagogique</span>
+        <span class="pill">Ressources ouvertes</span>
+        <span class="pill">IA raisonnée</span>
+        <span class="pill">Serious games</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-surface" id="approche">
+    <div class="container">
+      <div class="callout">
+        <span class="kicker">Positionnement</span>
+        <h2 class="section-title">Une approche anthropocentrée</h2>
+        <p class="lead">L’attention porte d’abord sur la qualité de l’expérience d’apprentissage, la lisibilité des parcours et le développement de l’autonomie. Les outils et les environnements numériques y trouvent leur place lorsqu’ils soutiennent avec justesse l’enseignement et l’apprentissage.</p>
+      </div>
+      <div class="grid grid-2" style="margin-top:2.5rem">
+        {domains.map((d) => (
+          <article class="domain">
+            <h3>{d.title}</h3>
+            <p>{d.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projets">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Projets &amp; réalisations</span>
+        <h2 class="section-title">Des outils ouverts, documentés, réutilisables</h2>
+        <p class="lead">Chaque projet publie sa démarche, ses choix de conception et ses limites — pour être repris, pas seulement utilisé.</p>
+      </div>
+      <div class="grid grid-3">
+        {projects.slice(0, 6).map((p) => <ProjectCard {...p} />)}
+      </div>
+      <p style="margin-top:2rem;margin-bottom:0">
+        <a class="btn btn-ghost" href={base + 'projets'}>Voir tous les projets</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section band-surface" id="veille">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Veille</span>
+        <h2 class="section-title">Comprendre avant d’adopter</h2>
+        <p class="lead">Des lectures critiques sur l’IA, l’évaluation, la motivation, l’inclusion et les transitions de l’enseignement supérieur.</p>
+      </div>
+      <div class="veille-list">
+        {veille.map((a) => (
+          <div class="veille-item">
+            <span class="veille-meta">
+              {a.data.category && <span class="cat-chip">{a.data.category}</span>}
+              <span class="v-date">{a.data.dateEstimated ? 'Archive' : fmt(a.data.date)}</span>
+            </span>
+            <a href={base + 'veille/' + a.slug}>{a.data.title}</a>
+            <p>{a.data.summary}</p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:2rem;margin-bottom:0">
+        <a class="btn btn-ghost" href={base + 'veille'}>Toute la veille</a>
+      </p>
+    </div>
+  </section>
+</Base>
