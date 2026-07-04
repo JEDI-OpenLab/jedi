@@ -259,6 +259,13 @@ hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
 .veille-search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .veille-empty{padding:2.5rem 0;color:var(--faint);font-style:italic;text-align:center}
 
+/* Encadré « nouveau carnet Hypothèses » (bien visible) */
+.blog-callout{position:relative;display:flex;flex-direction:column;gap:.85rem;padding:1.9rem 2rem;background:linear-gradient(135deg,var(--accent-soft),var(--gold-soft));border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);border-left:4px solid var(--accent);border-radius:var(--radius);box-shadow:0 var(--shadow-sm)}
+.blog-callout .eyebrow{color:var(--accent-ink);margin:0}
+.blog-callout h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.2;margin:.1rem 0 0;color:var(--ink)}
+.blog-callout p{margin:0;color:var(--ink);max-width:62ch;line-height:1.65}
+.blog-callout .btn-accent{align-self:flex-start;margin-top:.35rem}
+
 /* ── Pédagogie : phases ADDIE, démarche, champs d'intervention ─────────── */
 .num-mark{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.5rem}
 .explore-grid{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
