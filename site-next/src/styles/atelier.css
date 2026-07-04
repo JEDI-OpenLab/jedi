@@ -157,6 +157,25 @@ hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
 .icon-link:hover{color:var(--accent-ink);border-color:var(--accent)}
 .icon-link svg{width:18px;height:18px;display:block}
 
+/* Actions à droite (icônes) + lien externe + menu responsive */
+.nav-actions{display:flex;align-items:center;gap:.3rem;margin-left:.4rem}
+.nav-actions .icon-link,.nav-actions .theme-toggle{margin-left:0}
+.nav-link.nav-ext{display:inline-flex;align-items:center;gap:.42em}
+.nav-link.nav-ext svg{flex:0 0 auto;opacity:.65;margin-top:.05em}
+.menu-toggle{display:none;place-items:center;width:38px;height:38px;border:1px solid var(--line-strong);border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;transition:color .15s,border-color .15s}
+.menu-toggle:hover{color:var(--accent-ink);border-color:var(--accent)}
+.menu-toggle svg{display:block}
+
+@media (max-width:800px){
+  .nav{position:relative}
+  .nav-actions{margin-left:auto}
+  .menu-toggle{display:inline-grid}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:.12rem;margin:0;padding:.5rem 24px .85rem;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 20px 38px -18px rgba(20,30,30,.5);max-height:calc(100dvh - 64px);overflow-y:auto}
+  .nav-links.is-open{display:flex}
+  .nav-links .nav-link{padding:.85em .8em;border-radius:9px;font-size:1rem}
+  .nav-link.nav-ext{display:flex;justify-content:flex-start}
+}
+
 /* ── Hero ─────────────────────────────────────────────────────────────── */
 .hero{position:relative;overflow:hidden;padding-block:clamp(3.5rem,9vw,7rem)}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;
@@ -262,7 +281,7 @@ hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
 /* Encadré « nouveau carnet Hypothèses » (bien visible) */
 .blog-callout{position:relative;display:flex;flex-direction:column;gap:.85rem;padding:1.9rem 2rem;background:linear-gradient(135deg,var(--accent-soft),var(--gold-soft));border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);border-left:4px solid var(--accent);border-radius:var(--radius);box-shadow:0 var(--shadow-sm)}
 .blog-callout .eyebrow{color:var(--accent-ink);margin:0}
-.blog-callout h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.2;margin:.1rem 0 0;color:var(--ink)}
+.blog-callout h2,.blog-callout h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.2;margin:.1rem 0 0;color:var(--ink)}
 .blog-callout p{margin:0;color:var(--ink);max-width:62ch;line-height:1.65}
 .blog-callout .btn-accent{align-self:flex-start;margin-top:.35rem}
 
