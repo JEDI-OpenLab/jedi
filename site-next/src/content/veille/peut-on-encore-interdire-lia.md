@@ -37,7 +37,7 @@ Enfin, elle se déploie à plusieurs niveaux techniques : sur l’appareil, dans
 
 On peut représenter cette intégration ainsi :
 
-![Schéma : l’IA comme couche systémique — appareil, système d’exploitation, application, navigateur, cloud ou combinaison hybride](/jedi/PIX/ia-couche-systemique.png)
+![Schéma : l’IA comme couche systémique : appareil, système d’exploitation, application, navigateur, cloud ou combinaison hybride](/jedi/PIX/ia-couche-systemique.png)
 
 L’IA n’est donc pas seulement une fonctionnalité ; elle devient une médiation entre l’usager et ses propres données.
 
@@ -240,6 +240,6 @@ Le point majeur n’est donc pas que les usagers « utilisent ChatGPT ». Le poi
 - Phoronix, *Ubuntu Linux Will Begin Landing AI Features Throughout The Next Year*, 27 avril 2026. [https://www.phoronix.com/news/Ubuntu-AI-Features-2026](https://www.phoronix.com/news/Ubuntu-AI-Features-2026)
 - Phoronix, *Ubuntu’s “AI Kill Switch” Is Achieved By Removing Snaps*, 28 avril 2026. [https://www.phoronix.com/news/Ubuntu-AI-Kill-Switch-Opt-In](https://www.phoronix.com/news/Ubuntu-AI-Kill-Switch-Opt-In)
 
-## Note de veille — 27 mai 2026
+## Note de veille, 27 mai 2026
 
 **Avertissement.** Les technologies d’intelligence artificielle évoluent très vite. Ce billet décrit un état de la situation au 27 mai 2026 ; il est donc probable que certains exemples, noms de produits, fonctionnalités ou choix techniques deviennent rapidement obsolètes.
