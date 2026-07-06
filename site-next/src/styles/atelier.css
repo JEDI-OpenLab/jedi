@@ -284,6 +284,14 @@ hr{border:none;border-top:1px solid var(--line);margin:2.5rem 0}
 .blog-callout h2,.blog-callout h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.2;margin:.1rem 0 0;color:var(--ink)}
 .blog-callout p{margin:0;color:var(--ink);max-width:62ch;line-height:1.65}
 .blog-callout .btn-accent{align-self:flex-start;margin-top:.35rem}
+.carnet-latest{margin-top:.4rem;padding-top:1.05rem;border-top:1px dashed color-mix(in srgb,var(--accent) 30%,transparent)}
+.carnet-latest h3{font-family:var(--sans);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-ink);margin:0 0 .65rem}
+.carnet-latest ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.55rem}
+.carnet-latest li{display:flex;flex-direction:column;gap:.1rem;position:relative;padding-left:1.05em}
+.carnet-latest li::before{content:"";position:absolute;left:0;top:.52em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.carnet-latest a{font-weight:600;color:var(--ink);text-decoration:none}
+.carnet-latest a:hover{color:var(--accent-ink);text-decoration:underline}
+.carnet-meta{font-size:.84rem;color:var(--muted)}
 
 /* ── Pédagogie : phases ADDIE, démarche, champs d'intervention ─────────── */
 .num-mark{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:.5rem}
