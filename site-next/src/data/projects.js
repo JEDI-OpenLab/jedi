@@ -4,12 +4,12 @@ export const projects = [
     name: 'Doceria',
     badge: 'Application souveraine', badgeType: 'gold',
     url: 'https://jedi-openlab.github.io/doceria/',
-    desc: '« Enseigner avec l’IA » : une application de bureau souveraine pour interroger l’IA de la fédération ILaaS et sa propre bibliothèque de documents, en local, sans dépendance à un cloud non souverain.',
+    desc: '« Enseigner avec l’IA » : une application de bureau native et souveraine, entièrement fonctionnelle, pour interroger l’IA de la fédération ILaaS et sa propre bibliothèque de documents, en local, sans dépendance à un cloud non souverain.',
     bullets: [
-      'Assistant documentaire personnel : un dossier de votre machine devient interrogeable.',
-      'RAG en local : indexation et recherche sur votre poste, souveraineté des données.',
-      'S’appuie sur ILaaS, la fédération d’inférence souveraine de l’ESR.',
-      'Chantier en cours : application native macOS et Linux (Tauri).',
+      'Chat souverain via ILaaS, la fédération d’inférence de l’ESR ; clé API protégée dans le trousseau du système.',
+      'RAG local : déposez vos documents (PDF, DOCX…), les réponses citent vos sources.',
+      'Connecteur Moodle natif : indexation des cours en lecture seule, synchronisation incrémentale, opt-in enseignant.',
+      'Application livrée pour macOS (Apple Silicon), à télécharger sur GitHub ; Windows et Linux en feuille de route.',
     ],
   },
   {
