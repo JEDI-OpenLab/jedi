@@ -1,6 +1,18 @@
 // Fiches projets reprises fidèlement de l'ancien site (projets.html).
 export const projects = [
   {
+    name: 'Dire et taire',
+    badge: 'Recherche en conception', badgeType: 'warn',
+    url: 'https://jedi-openlab.github.io/dire-et-taire/index.html',
+    desc: 'Un village de quarante agents génératifs, une thèse d’historien qui y circule, et une question simple à poser, difficile à trancher : quand un agent se tait, qui se tait ? Un laboratoire en sciences de l’information et de la communication pour observer ce qui ne circule pas.',
+    bullets: [
+      'Simulation sociale générative : un village fictif, Saint-Aubert-sur-Lys, peuplé de quarante agents joués par des modèles de langage.',
+      'Cadre théorique : la spirale du silence de Noelle-Neumann et la notion de co-agentivité (qui parle vraiment quand un agent parle ?).',
+      'Protocole explicite : quatre hypothèses réfutables, 109 simulations prévues, codage par deux modèles juges et validation humaine.',
+      'Phase de conception : protocole écrit et relu, prêt à être préenregistré, aucune simulation encore jouée.',
+    ],
+  },
+  {
     name: 'Doceria',
     badge: 'Application souveraine', badgeType: 'gold',
     url: 'https://jedi-openlab.github.io/doceria/',
