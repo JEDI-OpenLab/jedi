@@ -5,6 +5,8 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	site: 'https://jedi-openlab.github.io',
 	base: '/jedi',
+	// Ancienne adresse de la page À propos, conservée pour les liens déjà partagés
+	redirects: { '/about': '/jedi/a-propos/' },
 	integrations: [
 		starlight({
 			title: 'JEDI-OpenLab',
@@ -22,12 +24,19 @@ export default defineConfig({
 			customCss: ['./src/styles/custom.css'],
 			components: {
 				SocialIcons: './src/components/SocialIcons.astro',
+				PageTitle: './src/components/PageTitle.astro',
 			},
 			lastUpdated: false,
 			sidebar: [
 				{ label: 'Accueil', link: '/' },
 				{ label: 'Projets', link: '/projets/' },
-				{ label: 'Veille', link: '/veille/' },
+				{
+					label: 'Veille',
+					items: [
+						{ label: 'Toute la veille', link: '/veille/' },
+						{ label: 'Les billets', collapsed: true, items: [{ autogenerate: { directory: 'veille' } }] },
+					],
+				},
 				{ label: 'Carnet (Hypothèses) ↗', link: 'https://jediopenlab.hypotheses.org/', attrs: { target: '_blank', rel: 'noopener' } },
 				{ label: 'Pédagogie', link: '/pedagogie/' },
 				{ label: 'À propos', link: '/a-propos/' },

@@ -66,3 +66,28 @@
 .jedi-statut[data-statut='conception']::before {
 	background: var(--jedi-conception);
 }
+
+/* Chapô et surtitre dans les pages de contenu (Pédagogie, À propos) */
+.jedi-lead {
+	font-size: var(--sl-text-lg);
+	line-height: 1.6;
+	color: var(--sl-color-gray-2);
+}
+.jedi-kicker {
+	display: block;
+	font-size: var(--sl-text-xs);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--sl-color-accent);
+	margin-top: 2.5rem;
+	margin-bottom: 0;
+}
+.sl-markdown-content .jedi-kicker + h2,
+.sl-markdown-content .jedi-kicker + .sl-heading-wrapper {
+	margin-top: 0.3rem !important;
+}
+.card .jedi-kicker {
+	margin-top: 0;
+	margin-bottom: 0.4rem;
+}

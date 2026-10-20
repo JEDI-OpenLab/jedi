@@ -1,0 +1,51 @@
+---
+// Titre de page : pour un billet de veille, ajoute le retour vers la Veille,
+// la thématique et la date (ou « Archive » quand la date est incertaine).
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+const { entry } = Astro.locals.starlightRoute;
+const billet = entry.id.startsWith('veille/');
+const d = entry.data;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const date = d.dateEstimated || !d.date ? 'Archive' : d.date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+{billet && <a class="retour" href={`${base}/veille/`}>← Veille</a>}
+<Default />
+{
+	billet && (
+		<p class="meta">
+			{d.category && <span class="theme">{d.category}</span>}
+			<span>{date}</span>
+		</p>
+	)
+}
+
+<style>
+	.retour {
+		display: inline-block;
+		margin-bottom: 0.75rem;
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+		color: var(--sl-color-accent);
+		text-decoration: none;
+	}
+	.meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.6rem;
+		margin-top: 0.9rem;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+	.theme {
+		font-size: var(--sl-text-xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--sl-color-accent);
+		border: 1px solid var(--sl-color-accent);
+		border-radius: 999px;
+		padding: 0.1rem 0.6rem;
+	}
+</style>

@@ -1,0 +1,274 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getCollection } from 'astro:content';
+import Carnet from '../../components/Carnet.astro';
+import NavMobile from '../../components/NavMobile.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// Même ordre que le menu : billets datés du plus récent au plus ancien, puis les archives.
+const billets = (await getCollection('docs', (e) => e.id.startsWith('veille/'))).sort(
+	(a, b) => (a.data.sidebar?.order ?? 99) - (b.data.sidebar?.order ?? 99)
+);
+const themes = [...new Set(billets.map((b) => b.data.category).filter(Boolean))].sort((a, b) => a!.localeCompare(b!, 'fr'));
+const date = (b: (typeof billets)[number]) =>
+	b.data.dateEstimated || !b.data.date
+		? 'Archive'
+		: b.data.date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'Veille',
+		description:
+			'Lectures critiques de JEDI-OpenLab sur l’IA, l’évaluation, la motivation, l’inclusion et les transitions de l’enseignement supérieur.',
+		template: 'splash',
+	}}
+	hasSidebar={false}
+>
+	<div class="page not-content">
+		<p class="kicker">Veille</p>
+		<h1>Comprendre avant d’adopter</h1>
+		<p class="intro">
+			Des lectures critiques sur l’IA, l’évaluation, la motivation, l’inclusion et les transitions de l’enseignement supérieur, classées
+			par thématique.
+		</p>
+		<NavMobile />
+
+		<aside class="encart" aria-label="Le carnet de recherche">
+			<p class="kicker">Nouveau · articles de fond</p>
+			<h2>Les analyses approfondies continuent sur Hypothèses</h2>
+			<p>
+				Hypothèses est la plateforme de carnets de recherche en sciences humaines et sociales éditée par OpenEdition. J’y publie désormais
+				les <strong>articles de fond</strong>, sur le carnet <em>JEDI-OpenLab</em>&nbsp;; cette page conserve les lectures critiques plus
+				courtes.
+			</p>
+			<p class="sous">Derniers billets du carnet</p>
+			<Carnet />
+		</aside>
+
+		<div class="outils">
+			<div class="chips" role="group" aria-label="Filtrer par thématique">
+				<button type="button" aria-pressed="true" data-theme="*">Tout <span>{billets.length}</span></button>
+				{
+					themes.map((t) => (
+						<button type="button" aria-pressed="false" data-theme={t}>
+							{t}
+						</button>
+					))
+				}
+			</div>
+			<label class="recherche">
+				<span class="sr-only">Rechercher dans la veille</span>
+				<input type="search" id="q" placeholder="Rechercher un billet…" />
+			</label>
+		</div>
+
+		<ul class="liste" id="liste">
+			{
+				billets.map((b) => (
+					<li data-theme={b.data.category ?? ''} data-texte={`${b.data.title} ${b.data.description ?? ''}`.toLowerCase()}>
+						<a href={`${base}/${b.id}/`}>
+							<span class="meta">
+								{b.data.category && <span class="theme">{b.data.category}</span>}
+								<span>{date(b)}</span>
+							</span>
+							<strong>{b.data.title}</strong>
+							<span class="resume">{b.data.description}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+		<p class="vide" id="vide" hidden>Aucun billet ne correspond à votre recherche.</p>
+	</div>
+</StarlightPage>
+
+<script>
+	const lignes = [...document.querySelectorAll<HTMLElement>('#liste li')];
+	const boutons = [...document.querySelectorAll<HTMLButtonElement>('.chips button')];
+	const q = document.querySelector<HTMLInputElement>('#q');
+	const vide = document.querySelector<HTMLElement>('#vide');
+	const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+	let theme = '*';
+	function filtrer() {
+		const t = norm(q?.value ?? '');
+		let n = 0;
+		lignes.forEach((li) => {
+			const ok = (theme === '*' || li.dataset.theme === theme) && (!t || norm(li.dataset.texte ?? '').includes(t));
+			li.hidden = !ok;
+			if (ok) n++;
+		});
+		if (vide) vide.hidden = n > 0;
+	}
+	boutons.forEach((b) =>
+		b.addEventListener('click', () => {
+			theme = b.dataset.theme!;
+			boutons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+			filtrer();
+		})
+	);
+	q?.addEventListener('input', filtrer);
+</script>
+
+<style>
+	:global(.content-panel:has(h1#_top)) {
+		display: none;
+	}
+	:global(.content-panel:has(h1#_top) + .content-panel) {
+		border-top: 0;
+	}
+	.page {
+		max-width: 56rem;
+		margin: 1.5rem auto 3rem;
+	}
+	.kicker {
+		font-size: var(--sl-text-sm);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--sl-color-accent);
+		margin: 0 0 0.5rem;
+	}
+	h1 {
+		font-size: clamp(2.2rem, 5vw, 3.2rem);
+		line-height: 1.08;
+		margin: 0 0 1rem;
+		color: var(--sl-color-white);
+		letter-spacing: -0.02em;
+	}
+	.intro {
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-lg);
+		line-height: 1.6;
+		margin: 0;
+	}
+	.encart {
+		margin: 2.5rem 0;
+		padding: 1.6rem 1.75rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-left: 4px solid var(--sl-color-accent);
+		border-radius: 0.75rem;
+		background: var(--sl-color-accent-low);
+	}
+	.encart h2 {
+		font-size: var(--sl-text-2xl);
+		line-height: 1.2;
+		margin: 0 0 0.6rem;
+		color: var(--sl-color-white);
+	}
+	.encart p {
+		color: var(--sl-color-gray-2);
+		margin: 0 0 1rem;
+		line-height: 1.6;
+	}
+	.encart .sous {
+		font-size: var(--sl-text-xs);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--sl-color-accent);
+		margin: 1.4rem 0 0.7rem;
+		padding-top: 1rem;
+		border-top: 1px dashed var(--sl-color-gray-5);
+	}
+	.outils {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.75rem;
+		padding-bottom: 1rem;
+		margin-bottom: 0.5rem;
+		border-bottom: 1px solid var(--sl-color-gray-5);
+	}
+	.chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+	.chips button {
+		font: inherit;
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+		padding: 0.35rem 0.85rem;
+		border-radius: 999px;
+		border: 1px solid var(--sl-color-gray-5);
+		background: transparent;
+		color: var(--sl-color-gray-2);
+		cursor: pointer;
+	}
+	.chips button span {
+		opacity: 0.7;
+		font-weight: 500;
+	}
+	.chips button[aria-pressed='true'] {
+		background: var(--sl-color-white);
+		border-color: var(--sl-color-white);
+		color: var(--sl-color-black);
+	}
+	.recherche input {
+		font: inherit;
+		font-size: var(--sl-text-sm);
+		padding: 0.5rem 0.9rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.5rem;
+		background: transparent;
+		color: var(--sl-color-white);
+		min-width: 15rem;
+	}
+	.recherche input:focus {
+		outline: 2px solid var(--sl-color-accent);
+		outline-offset: 1px;
+	}
+	.liste {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.liste li[hidden] {
+		display: none;
+	}
+	.liste li + li {
+		border-top: 1px solid var(--sl-color-gray-6);
+	}
+	.liste a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 1.1rem 0;
+		color: inherit;
+		text-decoration: none;
+	}
+	.liste strong {
+		font-size: var(--sl-text-lg);
+		color: var(--sl-color-white);
+		line-height: 1.3;
+	}
+	.liste a:hover strong {
+		color: var(--sl-color-accent);
+	}
+	.meta {
+		display: flex;
+		gap: 0.6rem;
+		align-items: center;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+	.theme {
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--sl-color-accent);
+	}
+	.resume {
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+		line-height: 1.55;
+	}
+	.vide {
+		color: var(--sl-color-gray-3);
+		font-style: italic;
+		padding: 2rem 0;
+		text-align: center;
+	}
+</style>
