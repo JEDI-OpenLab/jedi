@@ -1,6 +1,18 @@
 // Fiches projets reprises fidèlement de l'ancien site (projets.html).
 export const projects = [
   {
+    name: 'Remédiation IA : une relecture ADDIE',
+    badge: 'Étude de cas',
+    url: 'https://jedi-openlab.github.io/remediation-ia-addie/',
+    desc: 'Comment personnaliser la remédiation pour chaque élève quand le temps de correction la rend impraticable ? Une relecture ADDIE d’un retour d’expérience réel, pour en tirer une démarche réutilisable dans toute discipline où les élèves produisent un écrit évalué sur critères.',
+    bullets: [
+      'Un cas réel et anonymisé : une séquence d’anglais en Terminale, corrigée avec l’aide d’une IA générative jusqu’à un feedback individuel pour chaque élève.',
+      'Un principe central : l’IA prépare, l’enseignant·e relit, ajuste, valide et envoie ; rien ne va de l’IA à l’élève sans validation.',
+      'Les cinq phases ADDIE relues une à une : ce que montre le cas, recommandations, points de vigilance et checklist de sortie.',
+      'Des gabarits prêts à l’emploi : consignes pour l’IA, grille critériée, modèle de feedback, checklist de validation.',
+    ],
+  },
+  {
     name: 'Dire et taire',
     badge: 'Recherche en conception', badgeType: 'warn',
     url: 'https://jedi-openlab.github.io/dire-et-taire/index.html',
