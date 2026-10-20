@@ -1,0 +1,221 @@
+---
+// Catalogue des projets en lignes compactes, filtrable par famille
+// (et par statut avec `detail`). Il reste lisible quand les projets se multiplient.
+import { projets, familles, statuts, type Famille, type Statut } from '../data/projets';
+
+interface Props {
+	/** Page Projets : présentation complète et filtre par statut */
+	detail?: boolean;
+}
+const { detail = false } = Astro.props;
+const presents = (Object.keys(familles) as Famille[]).filter((f) => projets.some((p) => p.famille === f));
+const statutsPresents = (Object.keys(statuts) as Statut[]).filter((s) => projets.some((p) => p.statut === s));
+---
+
+<div class="catalogue" data-catalogue>
+	<div class="filtres">
+		<div class="chips" role="group" aria-label="Filtrer par famille" data-groupe="famille">
+			<button type="button" aria-pressed="true" data-valeur="*">Tout <span class="n">{projets.length}</span></button>
+			{
+				presents.map((f) => (
+					<button type="button" aria-pressed="false" data-valeur={f} data-famille={f}>
+						<i aria-hidden="true" />
+						{familles[f].court}
+					</button>
+				))
+			}
+		</div>
+		{
+			detail && (
+				<div class="chips" role="group" aria-label="Filtrer par statut" data-groupe="statut">
+					<button type="button" aria-pressed="true" data-valeur="*">Tous les statuts</button>
+					{statutsPresents.map((s) => (
+						<button type="button" aria-pressed="false" data-valeur={s}>
+							{statuts[s]}
+						</button>
+					))}
+				</div>
+			)
+		}
+	</div>
+
+	<ul class:list={['liste', { detail }]}>
+		{
+			projets.map((p) => (
+				<li data-famille={p.famille} data-statut={p.statut}>
+					<a href={p.url} target="_blank" rel="noopener">
+						<i aria-hidden="true" />
+						<span class="txt">
+							<strong>{p.nom}</strong>
+							<span class="ligne">{detail ? p.desc : p.ligne}</span>
+						</span>
+						<span class="fam">{familles[p.famille].label}</span>
+						<span class="jedi-statut" data-statut={p.statut}>
+							{statuts[p.statut]}
+						</span>
+						<span class="fleche" aria-hidden="true">↗</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+	<p class="vide" hidden>Aucun projet ne correspond à ces filtres.</p>
+</div>
+
+<script>
+	document.querySelectorAll<HTMLElement>('[data-catalogue]').forEach((cat) => {
+		const choix: Record<string, string> = { famille: '*', statut: '*' };
+		const lignes = [...cat.querySelectorAll<HTMLElement>('.liste li')];
+		const vide = cat.querySelector<HTMLElement>('.vide');
+		cat.querySelectorAll<HTMLElement>('[data-groupe]').forEach((groupe) => {
+			const boutons = [...groupe.querySelectorAll<HTMLButtonElement>('button')];
+			boutons.forEach((b) =>
+				b.addEventListener('click', () => {
+					choix[groupe.dataset.groupe!] = b.dataset.valeur!;
+					boutons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+					let visibles = 0;
+					lignes.forEach((li) => {
+						const ok =
+							(choix.famille === '*' || li.dataset.famille === choix.famille) &&
+							(choix.statut === '*' || li.dataset.statut === choix.statut);
+						li.hidden = !ok;
+						if (ok) visibles++;
+					});
+					if (vide) vide.hidden = visibles > 0;
+				})
+			);
+		});
+	});
+</script>
+
+<style>
+	.filtres {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		margin-bottom: 1rem;
+	}
+	.chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+	.chips button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45em;
+		font: inherit;
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+		padding: 0.35rem 0.85rem;
+		border-radius: 999px;
+		border: 1px solid var(--sl-color-gray-5);
+		background: transparent;
+		color: var(--sl-color-gray-2);
+		cursor: pointer;
+	}
+	.chips button:hover {
+		border-color: var(--sl-color-gray-3);
+	}
+	.chips button[aria-pressed='true'] {
+		background: var(--sl-color-white);
+		border-color: var(--sl-color-white);
+		color: var(--sl-color-black);
+	}
+	.chips i {
+		width: 0.6rem;
+		height: 0.6rem;
+		border-radius: 3px;
+		background: var(--c);
+	}
+	.chips .n {
+		font-weight: 500;
+		opacity: 0.7;
+	}
+	.liste {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.75rem;
+		overflow: hidden;
+	}
+	.liste li + li {
+		border-top: 1px solid var(--sl-color-gray-5);
+	}
+	.liste li[hidden] {
+		display: none;
+	}
+	.liste a {
+		display: grid;
+		grid-template-columns: 0.7rem minmax(0, 1fr) auto auto auto;
+		align-items: center;
+		gap: 0.3rem 1rem;
+		padding: 0.9rem 1.1rem;
+		color: inherit;
+		text-decoration: none;
+	}
+	.liste a:hover {
+		background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+	}
+	.liste i {
+		width: 0.6rem;
+		height: 0.6rem;
+		border-radius: 3px;
+		background: var(--c);
+	}
+	.detail.liste a {
+		align-items: start;
+	}
+	.detail.liste i {
+		margin-top: 0.45rem;
+	}
+	.txt strong {
+		display: block;
+		color: var(--sl-color-white);
+		font-size: var(--sl-text-base);
+	}
+	.ligne {
+		display: block;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+		line-height: 1.5;
+	}
+	.detail .ligne {
+		margin-top: 0.2rem;
+		max-width: 52rem;
+	}
+	.fam {
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+		white-space: nowrap;
+	}
+	.fleche {
+		color: var(--sl-color-gray-4);
+	}
+	.liste a:hover .fleche,
+	.liste a:hover strong {
+		color: var(--sl-color-accent);
+	}
+	.vide {
+		color: var(--sl-color-gray-3);
+		font-style: italic;
+	}
+	@media (max-width: 50rem) {
+		.liste a {
+			grid-template-columns: 0.7rem minmax(0, 1fr) auto;
+		}
+		.fam,
+		.fleche {
+			display: none;
+		}
+	}
+	@media (max-width: 34rem) {
+		.liste a {
+			grid-template-columns: 0.7rem minmax(0, 1fr);
+		}
+		.liste .jedi-statut {
+			grid-column: 2;
+		}
+	}
+</style>

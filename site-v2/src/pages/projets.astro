@@ -1,0 +1,64 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import Catalogue from '../components/Catalogue.astro';
+import NavMobile from '../components/NavMobile.astro';
+import { projets } from '../data/projets';
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'Projets',
+		description: `Les ${projets.length} projets de JEDI-OpenLab, rangés par famille : jeux et récits, guides et études de cas, outils, recherche.`,
+		template: 'splash',
+	}}
+	hasSidebar={false}
+>
+	<div class="page not-content">
+		<p class="kicker">Projets &amp; réalisations</p>
+		<h1>Tous les projets</h1>
+		<p class="intro">
+			Des ressources éducatives libres et des projets de recherche, rangés par famille. Chacun publie sa démarche, ses choix de conception
+			et ses limites, pour être repris, pas seulement utilisé.
+		</p>
+		<NavMobile />
+		<div class="cat"><Catalogue detail /></div>
+	</div>
+</StarlightPage>
+
+<style>
+	:global(.content-panel:has(h1#_top)) {
+		display: none;
+	}
+	:global(.content-panel:has(h1#_top) + .content-panel) {
+		border-top: 0;
+	}
+	.page {
+		max-width: 70rem;
+		margin: 1.5rem auto 3rem;
+	}
+	.kicker {
+		font-size: var(--sl-text-sm);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--sl-color-accent);
+		margin: 0 0 0.5rem;
+	}
+	h1 {
+		font-size: clamp(2.2rem, 5vw, 3.2rem);
+		line-height: 1.08;
+		margin: 0 0 1rem;
+		color: var(--sl-color-white);
+		letter-spacing: -0.02em;
+	}
+	.intro {
+		max-width: 46rem;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-lg);
+		line-height: 1.6;
+		margin: 0;
+	}
+	.cat {
+		margin-top: 2rem;
+	}
+</style>

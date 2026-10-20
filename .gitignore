@@ -6,3 +6,6 @@ _old/
 
 # Divers OS / éditeurs
 .DS_Store
+
+# Maquettes de travail (refonte du portail) — ne pas publier
+_maquettes/

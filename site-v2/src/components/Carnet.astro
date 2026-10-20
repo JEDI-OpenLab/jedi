@@ -1,0 +1,95 @@
+---
+// Derniers billets du carnet Hypothèses, lus dans le navigateur depuis le flux RSS
+// (Hypothèses autorise la lecture croisée). Si le flux est indisponible, seul le lien reste.
+const FLUX = 'https://jediopenlab.hypotheses.org/feed';
+---
+
+<div class="carnet" data-flux={FLUX}>
+	<ul class="billets" aria-live="polite"></ul>
+	<a class="tout" href="https://jediopenlab.hypotheses.org/" target="_blank" rel="noopener">Tout le carnet sur Hypothèses ↗</a>
+</div>
+
+<script>
+	document.querySelectorAll<HTMLElement>('.carnet[data-flux]').forEach(async (box) => {
+		const liste = box.querySelector('.billets');
+		if (!liste) return;
+		try {
+			const res = await fetch(box.dataset.flux!);
+			if (!res.ok) return;
+			const xml = new DOMParser().parseFromString(await res.text(), 'text/xml');
+			for (const item of [...xml.querySelectorAll('item')].slice(0, 3)) {
+				const titre = item.querySelector('title')?.textContent?.trim();
+				const lien = item.querySelector('link')?.textContent?.trim();
+				if (!titre || !lien?.startsWith('https://jediopenlab.hypotheses.org')) continue;
+				const d = new Date(item.querySelector('pubDate')?.textContent ?? '');
+				const date = isNaN(d.valueOf()) ? '' : d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+				const cat = item.querySelector('category')?.textContent?.trim();
+
+				const li = document.createElement('li');
+				const a = document.createElement('a');
+				a.href = lien;
+				a.target = '_blank';
+				a.rel = 'noopener';
+				const meta = document.createElement('span');
+				meta.className = 'meta';
+				meta.textContent = [date, cat].filter(Boolean).join(' · ');
+				const h = document.createElement('strong');
+				h.textContent = titre;
+				a.append(meta, h);
+				li.append(a);
+				liste.append(li);
+			}
+		} catch {
+			/* flux indisponible : le lien vers le carnet suffit */
+		}
+	});
+</script>
+
+<style>
+	.billets {
+		list-style: none;
+		margin: 0 0 1rem;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+	}
+	.billets:empty {
+		display: none;
+	}
+	@media (max-width: 50rem) {
+		.billets {
+			grid-template-columns: 1fr;
+		}
+	}
+	.billets :global(a) {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		height: 100%;
+		padding: 1.1rem 1.2rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.75rem;
+		color: inherit;
+		text-decoration: none;
+	}
+	.billets :global(a:hover) {
+		border-color: var(--sl-color-accent);
+	}
+	.billets :global(.meta) {
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+	.billets :global(strong) {
+		color: var(--sl-color-white);
+		line-height: 1.35;
+	}
+	.tout {
+		font-weight: 600;
+		color: var(--sl-color-accent);
+		text-decoration: none;
+	}
+	.tout:hover {
+		text-decoration: underline;
+	}
+</style>

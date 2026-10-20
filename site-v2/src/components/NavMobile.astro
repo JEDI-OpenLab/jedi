@@ -1,0 +1,39 @@
+---
+// Sur les pages pleine largeur (accueil, projets), Starlight n'a pas de menu mobile :
+// cette rangée de liens le remplace sur petit écran et sur écran moyen.
+import { liens } from './liens';
+---
+
+<nav class="nav-mobile" aria-label="Sections du portail">
+	{
+		liens.map((l) => (
+			<a href={l.href} {...(l.externe ? { target: '_blank', rel: 'noopener' } : {})}>
+				{l.label}
+				{l.externe && ' ↗'}
+			</a>
+		))
+	}
+</nav>
+
+<style>
+	.nav-mobile {
+		display: none;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin-top: 1rem;
+	}
+	.nav-mobile a {
+		padding: 0.3rem 0.8rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 999px;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+		text-decoration: none;
+	}
+	@media (max-width: 72rem) {
+		.nav-mobile {
+			display: flex;
+		}
+	}
+</style>

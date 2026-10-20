@@ -1,0 +1,49 @@
+---
+// En-tête : sections du portail, puis l'icône GitHub par défaut de Starlight.
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
+import { liens } from './liens';
+const ici = Astro.url.pathname;
+---
+
+<nav class="jedi-nav" aria-label="Sections du portail">
+	{
+		liens.map((l) => (
+			<a
+				href={l.href}
+				aria-current={!l.externe && ici.startsWith(l.href) ? 'page' : undefined}
+				{...(l.externe ? { target: '_blank', rel: 'noopener' } : {})}
+			>
+				{l.label}
+				{l.externe && <span aria-hidden="true"> ↗</span>}
+			</a>
+		))
+	}
+</nav>
+<Default />
+
+<style>
+	.jedi-nav {
+		display: flex;
+		gap: 0.15rem;
+		margin-inline-end: 0.5rem;
+	}
+	.jedi-nav a {
+		padding: 0.35rem 0.7rem;
+		border-radius: 0.5rem;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+		font-weight: 500;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.jedi-nav a:hover,
+	.jedi-nav a[aria-current='page'] {
+		color: var(--sl-color-white);
+		background: var(--sl-color-gray-6);
+	}
+	@media (max-width: 72rem) {
+		.jedi-nav {
+			display: none;
+		}
+	}
+</style>

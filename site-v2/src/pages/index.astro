@@ -1,0 +1,293 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import Catalogue from '../components/Catalogue.astro';
+import Carnet from '../components/Carnet.astro';
+import NavMobile from '../components/NavMobile.astro';
+import { projets, familles, statuts, surLEtabli, enConception } from '../data/projets';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const etabli = surLEtabli();
+
+const stats = [
+	{ n: String(projets.length), l: 'projets ouverts et documentés' },
+	{ n: String(Object.keys(familles).length), l: 'familles : jeux, guides, outils, recherche' },
+	{ n: String(enConception()), l: 'projets en conception, construits en public' },
+	{ n: 'CC BY 4.0', l: 'pour tous les contenus originaux' },
+];
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'JEDI-OpenLab, pédagogie ouverte, conçue avec soin',
+		description:
+			'JEDI-OpenLab, ingénierie et innovation pédagogique : outils, guides, jeux et recherches en pédagogie ouverte, publiés en ressources éducatives libres.',
+		template: 'splash',
+	}}
+	hasSidebar={false}
+>
+	<div class="home not-content">
+		<section class="hero">
+			<p class="kicker">Ingénierie &amp; innovation pédagogique · Centrale Lille</p>
+			<h1>JEDI-OpenLab <span>Pédagogie ouverte, conçue avec soin.</span></h1>
+			<blockquote>
+				Partir des besoins réels, alléger la complexité, documenter ses choix : pour que chaque ressource puisse être reprise, pas seulement
+				utilisée.
+			</blockquote>
+			<p class="lede">
+				Jean pour l’Éducation, le Design et l’Innovation. Des outils, des guides, des jeux et des recherches en ingénierie pédagogique, tous
+				publiés en ressources éducatives libres.
+			</p>
+			<div class="ctas">
+				<a class="btn primary" href="#projets">Explorer les projets</a>
+				<a class="btn" href="https://jediopenlab.hypotheses.org/" target="_blank" rel="noopener">Lire le carnet ↗</a>
+				<a class="btn" href={`${base}/pedagogie/`}>La démarche</a>
+			</div>
+			<NavMobile />
+		</section>
+
+		<ul class="stats">
+			{
+				stats.map((s) => (
+					<li>
+						<strong>{s.n}</strong>
+						<span>{s.l}</span>
+					</li>
+				))
+			}
+		</ul>
+
+		<section>
+			<p class="kicker">En ce moment</p>
+			<h2>Sur l’établi</h2>
+			<p class="intro">Les projets en cours ou tout récents. Ils se construisent en public : la démarche est publiée avant le résultat.</p>
+			<ul class="etabli">
+				{
+					etabli.map((p) => (
+						<li data-famille={p.famille}>
+							<a href={p.url} target="_blank" rel="noopener">
+								<span class="fam">{familles[p.famille].label}</span>
+								<strong>{p.nom}</strong>
+								<span class="jedi-statut" data-statut={p.statut}>
+									{p.etabli?.mention ?? statuts[p.statut]}
+								</span>
+								<span class="txt">{p.etabli?.texte}</span>
+								<span class="go">{p.etabli?.action} →</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</section>
+
+		<section id="projets">
+			<p class="kicker">Catalogue</p>
+			<h2>Tous les projets</h2>
+			<p class="intro">Rangés par famille, chacun avec sa licence et sa documentation.</p>
+			<Catalogue />
+			<a class="more" href={`${base}/projets/`}>Les fiches détaillées →</a>
+		</section>
+
+		<section>
+			<p class="kicker">Le carnet · Hypothèses</p>
+			<h2>Derniers billets</h2>
+			<p class="intro">Les articles de fond, publiés sur le carnet de recherche JEDI-OpenLab.</p>
+			<Carnet />
+		</section>
+
+		<footer class="license">
+			Ressources éducatives libres. Contenus originaux sous licence
+			<a href="https://creativecommons.org/licenses/by/4.0/deed.fr">CC BY 4.0</a>. Conception humaine, publication assistée par IA. JEDI-OpenLab,
+			Centrale Lille.
+		</footer>
+	</div>
+</StarlightPage>
+
+<style>
+	:global(.content-panel:has(h1#_top)) {
+		display: none;
+	}
+	:global(.content-panel:has(h1#_top) + .content-panel) {
+		border-top: 0;
+	}
+	.home {
+		max-width: 70rem;
+		margin-inline: auto;
+	}
+	section {
+		margin-block: 4rem;
+	}
+	.hero {
+		margin-top: 1.5rem;
+	}
+	.kicker {
+		font-size: var(--sl-text-sm);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--sl-color-accent);
+		margin: 0 0 0.5rem;
+	}
+	h1 {
+		font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+		line-height: 1.06;
+		margin: 0;
+		color: var(--sl-color-white);
+		letter-spacing: -0.025em;
+	}
+	h1 span {
+		display: block;
+		color: var(--sl-color-accent);
+	}
+	h2 {
+		font-size: clamp(1.6rem, 3vw, 2.1rem);
+		margin: 0 0 0.6rem;
+		color: var(--sl-color-white);
+		letter-spacing: -0.015em;
+	}
+	blockquote {
+		margin: 1.5rem 0 1rem;
+		padding-left: 1rem;
+		border-left: 4px solid var(--sl-color-accent);
+		font-style: italic;
+		font-size: var(--sl-text-lg);
+		line-height: 1.55;
+		color: var(--sl-color-gray-1, var(--sl-color-white));
+		max-width: 46rem;
+	}
+	.lede,
+	.intro {
+		max-width: 46rem;
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-lg);
+		line-height: 1.6;
+		margin: 0 0 1.5rem;
+	}
+	.ctas {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+	.btn {
+		padding: 0.7rem 1.3rem;
+		border-radius: 999px;
+		border: 1px solid var(--sl-color-gray-4);
+		color: var(--sl-color-white);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.btn:hover {
+		border-color: var(--sl-color-accent);
+	}
+	.btn.primary {
+		background: var(--sl-color-accent);
+		border-color: var(--sl-color-accent);
+		color: var(--sl-color-black);
+	}
+	.stats {
+		list-style: none;
+		padding: 0;
+		margin: 3rem 0 0;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1.25rem;
+	}
+	@media (max-width: 50rem) {
+		.stats {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	.stats li {
+		border-top: 3px solid var(--sl-color-gray-5);
+		padding-top: 0.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+	.stats li:last-child {
+		border-color: var(--sl-color-accent);
+	}
+	.stats strong {
+		font-size: var(--sl-text-2xl);
+		color: var(--sl-color-white);
+		line-height: 1.15;
+	}
+	.stats span {
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+	}
+	.etabli {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+	}
+	@media (max-width: 56rem) {
+		.etabli {
+			grid-template-columns: 1fr;
+		}
+	}
+	.etabli a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		height: 100%;
+		padding: 1.25rem 1.25rem 1.1rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-top: 4px solid var(--c);
+		border-radius: 0.75rem;
+		color: inherit;
+		text-decoration: none;
+		transition: transform 0.15s, box-shadow 0.15s;
+	}
+	.etabli a:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 12px 28px -16px rgba(0, 0, 0, 0.35);
+	}
+	.etabli .fam {
+		font-size: var(--sl-text-xs);
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--c);
+	}
+	.etabli strong {
+		font-size: var(--sl-text-xl);
+		color: var(--sl-color-white);
+		line-height: 1.25;
+	}
+	.etabli .txt {
+		color: var(--sl-color-gray-2);
+		font-size: var(--sl-text-sm);
+		line-height: 1.55;
+	}
+	.etabli .go {
+		margin-top: auto;
+		padding-top: 0.4rem;
+		font-weight: 600;
+		font-size: var(--sl-text-sm);
+		color: var(--c);
+	}
+	.more {
+		display: inline-block;
+		margin-top: 1rem;
+		font-weight: 600;
+		color: var(--sl-color-accent);
+		text-decoration: none;
+	}
+	.more:hover {
+		text-decoration: underline;
+	}
+	.license {
+		border-top: 1px solid var(--sl-color-gray-5);
+		padding-top: 1.5rem;
+		margin-top: 4rem;
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+	}
+	.license a {
+		color: var(--sl-color-accent);
+	}
+</style>

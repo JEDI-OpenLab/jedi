@@ -1,0 +1,68 @@
+/* Thème du portail JEDI-OpenLab, même socle que les sites Starlight des projets.
+   Accent du portail : bleu encre. Chaque famille de projets a sa couleur,
+   reprise des palettes de Copie conforme (rouge) et de Remédiation IA (ocre).
+   Starlight est sombre par défaut (:root), le thème clair a ses propres valeurs. */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #e3ecf6;
+	--sl-color-accent: #22507d;
+	--sl-color-accent-high: #0f2a45;
+
+	--jedi-jeux: #a8261b;
+	--jedi-jeux-f: #f9e1dd;
+	--jedi-guides: #9a5f1c;
+	--jedi-guides-f: #f6e2c8;
+	--jedi-outils: #2d5089;
+	--jedi-outils-f: #e8f0fe;
+	--jedi-recherche: #1f6136;
+	--jedi-recherche-f: #e3f4e6;
+	--jedi-ok: #2e7d4a;
+	--jedi-conception: #c0281c;
+}
+
+:root {
+	--sl-color-accent-low: #182a3d;
+	--sl-color-accent: #8fb6e0;
+	--sl-color-accent-high: #d6e6f7;
+
+	--jedi-jeux: #f0857a;
+	--jedi-jeux-f: #3d1a16;
+	--jedi-guides: #e0a867;
+	--jedi-guides-f: #3a2a17;
+	--jedi-outils: #86a8dc;
+	--jedi-outils-f: #1d2a40;
+	--jedi-recherche: #6cc08a;
+	--jedi-recherche-f: #183324;
+	--jedi-ok: #6cc08a;
+	--jedi-conception: #f0857a;
+}
+
+/* Couleur d'une famille, utilisée par les fiches, les lignes et les filtres */
+[data-famille='jeux'] { --c: var(--jedi-jeux); --cf: var(--jedi-jeux-f); }
+[data-famille='guides'] { --c: var(--jedi-guides); --cf: var(--jedi-guides-f); }
+[data-famille='outils'] { --c: var(--jedi-outils); --cf: var(--jedi-outils-f); }
+[data-famille='recherche'] { --c: var(--jedi-recherche); --cf: var(--jedi-recherche-f); }
+
+/* Pastille de statut, partagée */
+.jedi-statut {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4em;
+	align-self: flex-start;
+	font-size: var(--sl-text-xs);
+	font-weight: 600;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 999px;
+	padding: 0.15rem 0.6rem;
+	color: var(--sl-color-gray-2);
+	white-space: nowrap;
+}
+.jedi-statut::before {
+	content: '';
+	width: 0.45rem;
+	height: 0.45rem;
+	border-radius: 50%;
+	background: var(--jedi-ok);
+}
+.jedi-statut[data-statut='conception']::before {
+	background: var(--jedi-conception);
+}
