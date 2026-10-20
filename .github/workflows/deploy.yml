@@ -1,7 +1,7 @@
-name: Déploiement GitHub Pages (Astro · site-next)
+name: Déploiement GitHub Pages (Starlight · site)
 
-# Construit le portail Astro (dossier site-next/) et le publie sur GitHub Pages
-# à chaque push sur main. L'auteur n'a qu'à commiter/pousser : tout le reste est automatique.
+# Construit le portail (dossier site/, Astro 6 + Starlight) et le publie sur
+# GitHub Pages à chaque push sur main. Il suffit de pousser : le reste est automatique.
 
 on:
   push:
@@ -21,14 +21,26 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
     steps:
       - name: Récupérer le dépôt
         uses: actions/checkout@v4
-      - name: Installer + construire le site Astro
-        uses: withastro/action@v3
+      - name: Installer Node 22 (requis par Astro 6)
+        uses: actions/setup-node@v4
         with:
-          path: site-next        # le projet Astro est dans ce sous-dossier
-          node-version: 20
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Installer les dépendances
+        run: npm ci
+      - name: Construire le site
+        run: npm run build
+      - name: Préparer la publication
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
 
   deploy:
     needs: build
